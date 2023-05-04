@@ -18,7 +18,7 @@ class Server{
         this.app.use(express.json());
     }
     routes():void{
-        this.app.use(userRouting);
+        this.app.use('/auths',userRouting);
     }
     
     start():void{

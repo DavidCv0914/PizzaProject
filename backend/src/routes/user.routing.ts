@@ -10,7 +10,8 @@ class RoutesUser {
     }
 
     config():void{
-       this.userRoute.get('/',user.createUser);
+       this.userRoute.post('/createUser',user.createUser);
+       this.userRoute.post('/login',user.loginUser);
     }
 }
 

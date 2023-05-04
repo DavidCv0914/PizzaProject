@@ -1,6 +1,6 @@
 export default{
     HOST:"localhost",
-    PORT:3308,
+    PORT:3306,
     USER:"root",
     PASSWORD:"",
     DATABASE:"pizzeria"

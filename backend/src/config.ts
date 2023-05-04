@@ -3,5 +3,6 @@ export default{
     PORT:3306,
     USER:"root",
     PASSWORD:"",
-    DATABASE:"pizzeria"
+    DATABASE:"pizzeria",
+    TOKEN_SECRET : "ajdkfotplmcd"
 }

@@ -13,7 +13,6 @@ class RoutesUser {
        this.userRoute.post('/createUser',user.createUser);
        this.userRoute.post('/login',user.loginUser);
        this.userRoute.post('/createAdmin',user.createAdmin)
-       this.userRoute.get('/dataUser',user.dataUser)
     }
 }
 

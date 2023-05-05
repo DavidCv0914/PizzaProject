@@ -2,8 +2,8 @@ import conexion from "../database/database";
 import dotenv from "dotenv";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import { Request,Response,NextFunction } from "express";
-import config from "../config";
+import { Request,Response } from "express";
+
 
 class User {
 
@@ -14,6 +14,7 @@ class User {
     public async createUser(req:Request, res:Response){
         try {
             let {email,name,surname,cellphone,password}=req.body
+            
             let iconUser:string = "https://res.cloudinary.com/de2sdukuk/image/upload/v1682083366/usericon_eqm409.jpg"
             const saltRounds:number = 10;
             const salt:string = bcrypt.genSaltSync(saltRounds);
@@ -25,7 +26,7 @@ class User {
             if (response[0].length > 0 || response2[0].length > 0) {
                 res.json("Ya existe")
             }else{
-                const result:any[]=await conexion.query("INSERT INTO profile(email, name, surname, cellphone, iconUser, password) VALUES(?,?,?,?,?,?)",[email,name,surname,cellphone,iconUser,hash])
+                const result:any[]=await conexion.query("INSERT INTO profile(email, name, surname, cellphone, iconUser, password,codigo) VALUES(?,?,?,?,?,?,?)",[email,name,surname,cellphone,iconUser,hash,0])
                 
                 if (result[0].affectedRow != 0) { 
                     res.json("INSERT_OK");
@@ -107,30 +108,6 @@ class User {
             res.json(error)
             console.log(error);
         }
-    }
-
-    public async dataUser(req:Request, res:Response, next:NextFunction) {
-        
-        const token = req.header("token")
-        
-        if (token) {
-            let emailVerify = jwt.verify(token,process.env.TOKEN_SECRET || config.TOKEN_SECRET);
-            let {email}:any = emailVerify
-            const response:any[]=await conexion.query("SELECT * FROM admin WHERE email = ?",[email]);
-            const response2:any[]=await conexion.query("SELECT * FROM profile WHERE email = ?",[email]);
-            
-            if (response[0].length > 0) {
-                res.json({data:response[0][0], rol:"admin"})
-            }else if(response2[0].length > 0){
-                res.json({data:response2[0][0], rol:"user"})
-            }else{
-                res.json("error")
-            }
-            next();
-        } else {
-            res.json("no token")
-        }
-
     }
 
 }

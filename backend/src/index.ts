@@ -1,6 +1,8 @@
 import express,{Application} from "express";
 import cors from "cors";
 import userRouting from "./routes/user.routing";
+import userManagement from "./routes/userManagement.routing";
+
 
 class Server{
 
@@ -19,12 +21,12 @@ class Server{
     }
     routes():void{
         this.app.use('/auths',userRouting);
+        this.app.use(userManagement);
     }
     
     start():void{
         this.app.listen(this.app.get('port'),() => {
             console.log("Server runing on port ",this.app.get('port'));
-            
         })
     }
 

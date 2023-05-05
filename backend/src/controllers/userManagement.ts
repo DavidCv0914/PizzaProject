@@ -3,6 +3,7 @@ import { sendNodemailer } from "../helpers/nodemailer";
 import { numberRandom } from "../helpers/getRandomInt";
 import dotenv from "dotenv";
 import jwt from "jsonwebtoken";
+import bcrypt from "bcrypt";
 import { Request,Response,NextFunction} from "express";
 import config from "../config";
 
@@ -74,12 +75,7 @@ class UserManagement {
             const emailEnviado =await sendNodemailer.sendEmail(email, numberRandomGenerate, 1);
 
             if (emailEnviado.accepted) {
-                const response:any[]=await conexion.query("UPDATE profile SET codigo = ? WHERE email = ?",[numberRandomGenerate,email])
-                if (response[0].affectedRows != 0) {
-                    res.json("generate code");
-                }else{
-                    res.json("repeat procedure")
-                }
+                res.json(numberRandomGenerate);
             } else {
                 res.json("repeat procedure")
             }
@@ -91,10 +87,50 @@ class UserManagement {
             res.json(error)
             console.log(error);
         }
-       
 
+    }
+
+    public async verifyCode(req:Request,res:Response) {
+        try {
+            let {codeVerify}=req.params
+            let {code} = req.body
+           
+
+            if (code == codeVerify) {
+                res.json("correct code")
+            } else {
+                res.json("Incorrect code")
+            }
+            
+        } catch (error) {
+            res.json(error);
+            console.log(error);
+            
+        }
+    }
+
+    public async updatePassword(req:Request,res:Response) {
+        try {
+            let {email} = req.params
+            let {password} = req.body
+            const saltRounds:number = 10;
+            const salt:string = bcrypt.genSaltSync(saltRounds);
+            const hash = bcrypt.hashSync(password, salt);
+
+            const response:any[] = await conexion.query("UPDATE profile SET password = ? WHERE email = ?",[hash,email])
+            
+            if (response[0].affectedRows != 0) {
+                res.json("successful update password");
+            }else{
+                res.json("update failed password");
+            }
+
+        } catch(error){
+            res.json(error)
+            console.log(error);
+        }
     }
 
 }
 
-export const userManagement = new UserManagement();
+export const userManagement = new UserManagement(); 

@@ -13,6 +13,8 @@ class RoutesUser {
        this.userRoute.post('/updateUser',userManagement.updateUser);
        this.userRoute.get('/dataUser',userManagement.dataUser);
        this.userRoute.post('/sendEmail',userManagement.senEmail);
+       this.userRoute.post('/validateCode/:codeVerify',userManagement.verifyCode);
+       this.userRoute.post('/updatePassword/:email',userManagement.updatePassword)
     }
 }
 

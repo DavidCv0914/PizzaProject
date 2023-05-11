@@ -2,7 +2,7 @@ import express,{Application} from "express";
 import cors from "cors";
 import userRouting from "./routes/user.routing";
 import userManagement from "./routes/userManagement.routing";
-
+import pizzaOrdersRouting from "./routes/pizzaOrders.routing";
 
 class Server{
 
@@ -22,6 +22,7 @@ class Server{
     routes():void{
         this.app.use('/auths',userRouting);
         this.app.use(userManagement);
+        this.app.use(pizzaOrdersRouting);
     }
     
     start():void{

@@ -95,10 +95,10 @@ header{
     justify-content: center;
 }
 
-.nav .usuario-btn a{
-    content: url(../img/usuario.png);
-    height: 50px;
-    width: 50px;
+.nav .usuario-btn img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
 }
 .nav .btn{
     text-decoration: none;
@@ -113,7 +113,7 @@ header{
 /*---------------------*/
 .nav.active{
     background: var(--color-cuarto);
-    z-index: 10;
+    z-index: 100;
 }
 /*------------------------------------*/
 .hero{

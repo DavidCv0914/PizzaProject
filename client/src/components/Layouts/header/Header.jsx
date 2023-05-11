@@ -35,9 +35,20 @@ export const Header = () => {
         }
     },[])
 
+    const [active, setActive]= useState(false)
+
+    function setActiveNavbar() {
+        if (window.scrollY >= 850) {
+            setActive(true)
+        }else{
+            setActive(false)
+        }
+    }
+    window-addEventListener('scroll', setActiveNavbar)
+
   return (
     <header>
-            <nav className="nav">
+            <nav className={active ? 'nav active' : 'nav'}>
                 <div className="logo">
                     <Link to="/"></Link>
                 </div>
@@ -52,7 +63,7 @@ export const Header = () => {
                     {infoUser.name}            
                     </Link> 
                     <div className="usuario-btn">
-                        <Link to="/" className="btn"></Link>
+                    <img src={infoUser.iconUser} alt="" /> 
                     </div>
                 </div>:
                 <div className="usuario">
@@ -60,7 +71,7 @@ export const Header = () => {
                     Iniciar sesión           
                     </Link> 
                     <div className="usuario-btn">
-                        <Link to="/LogIn" className="btn"></Link>
+                       <img src="https://res.cloudinary.com/de2sdukuk/image/upload/v1682083366/usericon_eqm409.jpg" alt="" /> 
                     </div>
                 </div>}
             </nav>

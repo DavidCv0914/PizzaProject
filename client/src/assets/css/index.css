@@ -1,0 +1,307 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;700&display=swap');
+
+:root{
+    --color-primer:#ffbb00;
+    --color-segundo:#ff0000;
+    --color-tercer:#039e00;
+    --color-cuarto:#0b1315;
+    --color-quinto:#ffffff;
+    --boton-padding: 10px 25px;
+    background: var(--color-quinto);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Comfortaa', cursive;
+    font-size: 20px;
+}
+body{
+    background-color: var(--color-quinto);
+}
+header{
+    background:linear-gradient(#1f27297e, #0b13154c), url(../img/Hero.jpg) no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 120px;
+    position: fixed;
+    transition: all 0.5s ease;
+    padding: 0 50px;
+}
+.nav img::selection,
+.buscador::selection{
+    background: var(--color-quinto);
+    color: var(--color-segundo);
+}
+.menu li a::selection{
+    background: none;
+    color: var(--color-segundo);
+}
+.nav .logo{
+    cursor: pointer;
+}
+.nav .logo a{
+    content: url(../img/Logo.png);
+    height: 70px;
+    width: auto;
+    transition: all 0.5s ease 0s;
+}
+.nav .logo img:hover{
+    transform: scale(1.2);
+}
+.menu{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+    font-weight: 900;
+}
+.menu li a{
+    color:var(--color-quinto);
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+.menu li a:hover{
+    color: var(--color-primer);
+}
+.usuario{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: max-content;
+}
+    
+.nav .usuario-btn{
+    font-weight: 700;
+    align-items: center;
+    background: var(--color-quinto);
+    border-radius: 50px;
+    cursor: pointer;
+    height: 70px;
+    width: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav .usuario-btn a{
+    content: url(../img/usuario.png);
+    height: 50px;
+    width: 50px;
+}
+.nav .btn{
+    text-decoration: none;
+    color: var(--color-quinto);
+    font-weight: 900;
+}
+
+.btn button::selection{
+    background: none;
+    color: var(--color-segundo);
+}
+/*---------------------*/
+.nav.active{
+    background: var(--color-cuarto);
+    z-index: 10;
+}
+/*------------------------------------*/
+.hero{
+    display: flex;
+    align-items: center;
+    color: var(--color-quinto);
+}
+.hero p{
+    font-size: 60px;
+    font-weight: bold;
+}
+.hero p::selection{
+    color: var(--color-segundo);
+}
+/*------------------------*/
+.feature{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-evenly;
+}
+.feature-b{
+    display: grid;
+    width: 80%;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 100px 70px 120px;
+    align-items: center;
+    gap: 20px;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+}
+.feature-b h2{
+    font-size: 30px;
+    font-weight: 900;
+}
+.feature-b-h21{
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+.feature-b-h22{
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+.feature-b-h23{
+    grid-column: 3/4;
+    grid-row: 2/3;
+}
+.feature-b p{
+    font-size: 20px;
+    font-weight: 100;
+}
+.feature-b-img1{
+    grid-row: 1/1;
+    grid-column: 1/2;
+}
+.feature-b-img2{
+    grid-row: 1/1;
+    grid-column: 2/3;
+}
+.feature-b-img3{
+    grid-row: 1/1;
+    grid-column: 3/4;
+}
+.feature-b img{
+    width: auto;
+    height: 100px;
+}
+/*------------------------------*/
+.about{
+    height: 90vh;
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.about-us{
+    width: 80%;
+    display: flex;
+    height: max-content;
+    justify-content: space-evenly;
+    align-items: center;
+    background: var(--color-quinto);
+    border: var(--color-primer) solid 15px;
+    border-radius: 300px;
+}
+.about-us-c{
+    width: 80%;
+    margin:0 30px;
+    display: flex;
+    flex-direction: column;
+    height: max-content;
+    gap: 20px;
+}
+.about-us-c h2{
+    font-size: 30px;
+    font-weight: 900;
+}
+.about-us-c p{    
+    font-size: 20px;
+    font-weight: 100;
+}
+.about-us p:first-child{
+    content: url(../img/pizza.png);
+    width: auto;
+    height: 300px;
+}
+
+
+/*--------------Formularios---------------------*/
+.form-contain{
+    background: url(../img/form.jpg) no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+}
+.form-contain-f{
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255,255, 255, 0));
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    border: 1 px solid rgba(255, 255, 255, 0.18);
+    width: 35%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    color: var(--color-quinto);
+}
+.form-contain-f h1{
+    font-size: 35px;
+    font-weight: 900;
+}
+form input{
+    margin: 15px 0;
+    border-radius: 50px;
+    padding: var(--boton-padding);
+    border: none;
+    line-height: 1.5;
+}
+form input:focus{
+    outline: none;
+}
+form input::selection{
+    color: var(--color-primer);
+    background: none;
+}
+.form-contain-f form{
+    display: flex;
+    width: 60%;
+    flex-direction: column;
+}
+.form-contain-f a{
+    color: var(--color-quinto);
+    text-decoration: none;
+    font-size: 1.1em;
+}
+.form-contain-f-btn{
+    display: flex;
+    justify-content: center;
+}
+.form-contain-f-btn button{
+    font-weight: 700;
+    color: var(--color-segundo);
+    padding: var(--boton-padding);
+    background: var(--color-quinto);
+    text-decoration: none;
+    display: inline;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    width: max-content;
+    transition: all 0.3s ease;
+}
+.form-contain-f-btn button:hover{
+    color: var(--color-primer);
+}
+.volver{
+    position: absolute;
+    margin: 30px;
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--color-quinto);
+    text-decoration: none;
+    z-index: 200;
+}
+/********----------------------------*/

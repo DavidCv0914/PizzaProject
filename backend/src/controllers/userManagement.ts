@@ -55,11 +55,11 @@ class UserManagement {
             }else if(response2[0].length > 0){
                 res.json({data:response2[0][0], rol:"user"})
             }else{
-                res.json("error")
+                res.json({data:"error"})
             }
             next();
         } else {
-            res.json("no token")
+            res.json({data:"no token"})
         }
 
     }

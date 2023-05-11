@@ -76,7 +76,7 @@ class User {
     public async loginUser(req:Request, res:Response) {
         try {
             let {email,password} = req.body
-
+        
             const validateEmail:any[]= await conexion.query("SELECT * FROM profile WHERE email = ?",[email]);
             const validateEmailAdmin:any[]= await conexion.query("SELECT * FROM admin WHERE email = ?",[email]);
             
@@ -85,23 +85,23 @@ class User {
                 const isValidPassword: boolean = await bcrypt.compare(password, passwordHash);
                 
                 if (!isValidPassword) {
-                    res.json("Incorrect email or password");
+                    res.json({data:"Incorrect email or password"});
                 } else {
                     const token = jwt.sign({email},process.env.TOKEN_SECRET || "tokenSecret" ,{expiresIn:60*60*24})
-                    res.header("token",token).json({data:"Login successful", rol:"user"});
+                    res.header("token",token).json({data:"Login successful", rol:"user", token:token});
                 }
             }else if(validateEmailAdmin[0].length > 0) {
                 const passwordHash: string = validateEmailAdmin[0][0].password;
                 const isValidPassword: boolean = await bcrypt.compare(password, passwordHash);
                 
                 if (!isValidPassword) {
-                    res.json("Incorrect email or password");
+                    res.json({data:"Incorrect email or password"});
                 } else {
                     const token = jwt.sign({email},process.env.TOKEN_SECRET || "tokenSecret" ,{expiresIn:60*60*24})
                     res.header("token",token).json({data:"Login successful", rol:"admin"});
                 }
             }else {
-                res.json("User does not exist")
+                res.json({data:"User does not exist"})
             }
 
         } catch (error) {

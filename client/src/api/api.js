@@ -13,3 +13,6 @@ export const loginUser = async(values) =>
 
 export const dataUser = async() =>
     await axios.get(`${url}/dataUser`, {headers:{token:token}});
+
+export const generateOrder = async(values) =>
+    await axios.get(`${url}/generateOrder`,values, {headers:{token:token}});

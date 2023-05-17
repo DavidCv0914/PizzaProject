@@ -1,231 +1,248 @@
 import React, { useState } from "react";
 
 export const Order = () => {
+
   const [isChecked, setIsChecked] = useState(false);
 
   function handleCheckboxChange() {
     setIsChecked(!isChecked);
   }
 
+  const handleSubmitMeats = (e) =>{
+    e.preventDefault()
+  }
+
   return (
     <>
       <h1>hellow world</h1>
+      <section className="order-form">
       <form>
-        <h3>Carnes</h3>{/*2*/}
-        <p>Pepperoni</p>
+        
+        <details>
+          <summary>Carnes</summary>
+        
         <input
           type="checkbox"
           checked={isChecked}
           onChange={handleCheckboxChange}
         />
-        <p>Jamón</p>
+        <label>Pepperoni</label>
+        
         <input
           type="checkbox"
-          checked={isChecked}
-          onChange={handleCheckboxChange}
+          
         />
-        <p>Salchicha</p>
+        <label>Jamón</label>
+        
         <input
           type="checkbox"
-          checked={isChecked}
-          onChange={handleCheckboxChange}
+          
         />
-        <p>Tocino</p>
+        <label>Salchicha</label>
+        
         <input
           type="checkbox"
-          checked={isChecked}
-          onChange={handleCheckboxChange}
+          
         />
-        <p>Pollo</p>
+        <label>Tocino</label>
+        
         <input
           type="checkbox"
-          checked={isChecked}
-          onChange={handleCheckboxChange}
+          
         />
-        <p>Carne Molida</p>
+        <label>Pollo</label>
+        
         <input
           type="checkbox"
-          checked={isChecked}
-          onChange={handleCheckboxChange}
+          
         />
-        <p>Salami</p>
+        <label>Carne Molida</label>
+        
         <input
           type="checkbox"
-          checked={isChecked}
-          onChange={handleCheckboxChange}
+          
         />
-        <p>Chorizo</p>
+        <label>Salami</label>
+        
         <input
           type="checkbox"
-          checked={isChecked}
-          onChange={handleCheckboxChange}
+          
         />
-        <p>Carne Molida</p>
+        <label>Chorizo</label>
+        
         <input
           type="checkbox"
-          checked={isChecked}
-          onChange={handleCheckboxChange}
+          
         />
-        <p>Prosciuto</p>
+        <label>Carne Molida</label>
+        
         <input
           type="checkbox"
-          checked={isChecked}
-          onChange={handleCheckboxChange}
+          
         />
+        
+        <label>Prosciutto</label>
+        </details>
+        <button onSubmit={handleSubmitMeats}>Checar</button>
       </form>
 
       <form>
         <h3>Queso</h3>{/*1*/}
         {/*2*/}
-        <p>Mozarella</p>
+        <label>Mozarella</label>
         <input
           type="checkbox"
-          checked={isChecked}
-          onChange={handleCheckboxChange}
+          
         />
-        <p>Parmesano</p>
+        <label>Parmesano</label>
         <input
           type="checkbox"
-          checked={isChecked}
-          onChange={handleCheckboxChange}
+          
         />
-        <p>Cheddar</p>
+        <label>Cheddar</label>
         <input
           type="checkbox"
-          checked={isChecked}
-          onChange={handleCheckboxChange}
+          
         />
-        <p>Feta</p>
+        <label>Feta</label>
         <input
           type="checkbox"
-          checked={isChecked}
-          onChange={handleCheckboxChange}
+          
         />
-        <p>Cabra</p>
+        <label>Cabra</label>
         <input
           type="checkbox"
-          checked={isChecked}
-          onChange={handleCheckboxChange}
+          
         />
-        <p>Ricotta</p>
+        <label>Ricotta</label>
         <input
           type="checkbox"
-          checked={isChecked}
-          onChange={handleCheckboxChange}
+          
         />
-        <p>Gorgonzola</p>
+        <label>Gorgonzola</label>
         <input
           type="checkbox"
-          checked={isChecked}
-          onChange={handleCheckboxChange}
+          
         />
-        <p>Azul</p>
+        <label>Azul</label>
         <input
           type="checkbox"
-          checked={isChecked}
-          onChange={handleCheckboxChange}
+          
         />
       </form>
-
-
-
       
       <form>
       <h3>Vegetales</h3>{/*3*/}
-        <p>Champiñones</p>
+        <label>Champiñones</label>
         <input
           type="checkbox"
-          checked={isChecked}
-          onChange={handleCheckboxChange}
+          
         />
-        <p>Pimiento verde</p>
+        <label>Pimiento verde</label>
         <input
           type="checkbox"
-          checked={isChecked}
-          onChange={handleCheckboxChange}
+          
         />
-        <p>Maiz</p>
+        <label>Maiz</label>
         <input
           type="checkbox"
-          checked={isChecked}
-          onChange={handleCheckboxChange}
+          
         />
-        <p>Cebolla</p>
+        <label>Cebolla</label>
         <input
           type="checkbox"
-          checked={isChecked}
-          onChange={handleCheckboxChange}
+          
         />
-        <p>Tomate</p>
+        <label>Tomate</label>
         <input
           type="checkbox"
-          checked={isChecked}
-          onChange={handleCheckboxChange}
+          
         />
-        <p>Espinacas</p>
+        <label>Espinacas</label>
         <input
           type="checkbox"
-          checked={isChecked}
-          onChange={handleCheckboxChange}
+          
         />
-        <p>Piña</p>
+        <label>Piña</label>
         <input
           type="checkbox"
-          checked={isChecked}
-          onChange={handleCheckboxChange}
+          
         />
-        <p>Tomates secos</p>
+        <label>Tomates secos</label>
         <input
           type="checkbox"
-          checked={isChecked}
-          onChange={handleCheckboxChange}
+          
         />
       </form>
-
-
-
       
       <form>
       <h3>Salsas</h3>{/*2*/}
-        <p>Salsa de tomate</p>
+        <label>Salsa de tomate</label>
         <input
           type="checkbox"
-          checked={isChecked}
-          onChange={handleCheckboxChange}
+          
         />
-        <p>Salsa BBQ</p>
+        <label>Salsa BBQ</label>
         <input
           type="checkbox"
-          checked={isChecked}
-          onChange={handleCheckboxChange}
+          
         />
-        <p>Salsa Alfredo</p>
+        <label>Salsa Alfredo</label>
         <input
           type="checkbox"
-          checked={isChecked}
-          onChange={handleCheckboxChange}
+          
         />
-        <p>Salsa pesto</p>
+        <label>Salsa pesto</label>
         <input
           type="checkbox"
-          checked={isChecked}
-          onChange={handleCheckboxChange}
+          
         />
-        <p>Salsa Ranchera</p>
+        <label>Salsa Ranchera</label>
         <input
           type="checkbox"
-          checked={isChecked}
-          onChange={handleCheckboxChange}
+          
         />
-        <p>Salsa de ajo</p>
+        <label>Salsa de ajo</label>
         <input
           type="checkbox"
-          checked={isChecked}
-          onChange={handleCheckboxChange}
+          
         />
       </form>
-      <h3>Aderezos</h3>
-      {/*3*/}
+
+      <form>
+      <h3>Aderezos</h3>{/*3*/}
+      <label>Orégano</label>
+        <input
+          type="checkbox"
+          
+        />
+        <label>Albaca</label>
+        <input
+          type="checkbox"
+          
+        />
+        <label>Perejil</label>
+        <input
+          type="checkbox"
+          
+        />
+        <label>Pimienta negra</label>
+        <input
+          type="checkbox"
+          
+        />
+        <label>Sal</label>
+        <input
+          type="checkbox"
+          
+        />
+        <label>Ajo picado</label>
+        <input
+          type="checkbox"
+          
+        />
+      </form>
+      </section>
     </>
   );
 };

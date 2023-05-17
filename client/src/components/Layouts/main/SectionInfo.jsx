@@ -3,7 +3,7 @@ import React from 'react'
 export const SectionInfo = () => {
   return (
     <main>
-        <section className="feature">
+        <section className="feature" id='features'>
             <div className="feature-b">
 
                     <img className="feature-b-img1" src="https://res.cloudinary.com/dtit8udfs/image/upload/v1683727284/cortador-de-pizza_a7d55c.png"/> 
@@ -21,7 +21,7 @@ export const SectionInfo = () => {
             </div>
         </section>
 
-        <section className="about">
+        <section className="about" id='about'>
             <div className="about-us">
                 <p></p>
                 <div className="about-us-c">

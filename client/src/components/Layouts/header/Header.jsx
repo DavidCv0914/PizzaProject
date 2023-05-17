@@ -48,14 +48,14 @@ export const Header = () => {
 
   return (
     <header>
-            <nav className={active ? 'nav active' : 'nav'}>
+            <nav className={active ? 'nav active' : 'nav'}>                                 
                 <div className="logo">
                     <Link to="/"></Link>
-                </div>
+                </div>                                                                                                                                                                                                      
                 <ul className="menu">
                     <li><Link to="#">Menu</Link></li>
-                    <li><Link to="#">Encuentranos</Link></li>
-                    <li><Link to="#">Contactanos</Link></li>
+                    <li><Link to="feature">Encuentranos</Link></li>
+                    <li><Link to="about">Contactanos</Link></li>                                                                                                                                                                                                            
                 </ul>
                 {verifyInfo ? 
                 <div className="usuario">

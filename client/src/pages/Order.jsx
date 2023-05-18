@@ -2,93 +2,160 @@ import React, { useState } from "react";
 
 export const Order = () => {
 
-  const [isChecked, setIsChecked] = useState(false);
+  const [isChecked1, setIsChecked1] = useState(false);
+  const [isChecked2, setIsChecked2] = useState(false);
+  const [isChecked3, setIsChecked3] = useState(false);
+  const [isChecked4, setIsChecked4] = useState(false);
+  const [isChecked5, setIsChecked5] = useState(false);
+  const [isChecked6, setIsChecked6] = useState(false);
+  const [isChecked7, setIsChecked7] = useState(false);
+  const [isChecked8, setIsChecked8] = useState(false);
+  const [isChecked9, setIsChecked9] = useState(false);
+  const [isChecked10, setIsChecked10] = useState(false);
+  const [validateForm1, setValidateForm1] = useState(false);
 
-  function handleCheckboxChange() {
-    setIsChecked(!isChecked);
+  function handleCheckboxChange1() {
+    setIsChecked1(!isChecked1);
   }
 
+  function handleCheckboxChange2() {
+    setIsChecked2(!isChecked2);
+  }
+
+  function handleCheckboxChange3() {
+    setIsChecked3(!isChecked3);
+  }
+
+  function handleCheckboxChange4() {
+    setIsChecked4(!isChecked4);
+  }
+
+  function handleCheckboxChange5() {
+    setIsChecked5(!isChecked5);
+  }
+
+  function handleCheckboxChange6() {
+    setIsChecked6(!isChecked6);
+  }
+
+  function handleCheckboxChange7() {
+    setIsChecked7(!isChecked7);
+  }
+
+  function handleCheckboxChange8() {
+    setIsChecked8(!isChecked8);
+  }
+
+  function handleCheckboxChange9() {
+    setIsChecked9(!isChecked9);
+  }
+
+  function handleCheckboxChange10() {
+    setIsChecked10(!isChecked10);
+  }
   const handleSubmitMeats = (e) =>{
-    e.preventDefault()
+    e.preventDefault();
+    let arayCheked = [isChecked1,isChecked2,isChecked3,isChecked4,isChecked5,isChecked6,isChecked7,isChecked8,isChecked9,isChecked10]
+    let validate = []
+    for (let i = 0; i < 10; i++) {
+      if (arayCheked[i]) {
+        validate.push(arayCheked[1])
+      }
+    }
+    
+    if (validate.length > 2 ) {
+      alert("No puede poner mas de dos ingredientes")
+    }else if( validate.length == 0){
+      alert("tiene que poner al menos un ingrediente")
+    }else{
+      alert("validado")
+    }
   }
 
   return (
     <>
-      <h1>hellow world</h1>
       <section className="order-form">
-      <form>
+      <form onSubmit={handleSubmitMeats}>
         
         <details>
           <summary>Carnes</summary>
         
         <input
           type="checkbox"
-          checked={isChecked}
-          onChange={handleCheckboxChange}
+          checked={isChecked1}
+          onChange={handleCheckboxChange1}
         />
         <label>Pepperoni</label>
         
         <input
           type="checkbox"
-          
+          checked={isChecked2}
+          onChange={handleCheckboxChange2}
         />
         <label>Jamón</label>
         
         <input
           type="checkbox"
-          
+          checked={isChecked3}
+          onChange={handleCheckboxChange3}
         />
         <label>Salchicha</label>
         
         <input
           type="checkbox"
-          
+          checked={isChecked4}
+          onChange={handleCheckboxChange4}
         />
         <label>Tocino</label>
         
         <input
           type="checkbox"
-          
+          checked={isChecked5}
+          onChange={handleCheckboxChange5}
         />
         <label>Pollo</label>
         
         <input
           type="checkbox"
-          
+          checked={isChecked6}
+          onChange={handleCheckboxChange6}
         />
         <label>Carne Molida</label>
         
         <input
           type="checkbox"
-          
+          checked={isChecked7}
+          onChange={handleCheckboxChange7}
         />
         <label>Salami</label>
         
         <input
           type="checkbox"
-          
+          checked={isChecked8}
+          onChange={handleCheckboxChange8}
         />
         <label>Chorizo</label>
         
         <input
           type="checkbox"
-          
+          checked={isChecked9}
+          onChange={handleCheckboxChange9}
         />
         <label>Carne Molida</label>
         
         <input
           type="checkbox"
-          
+          checked={isChecked10}
+          onChange={handleCheckboxChange10}
         />
         
         <label>Prosciutto</label>
         </details>
-        <button onSubmit={handleSubmitMeats}>Checar</button>
+        <button>Checar</button>
       </form>
 
       <form>
-        <h3>Queso</h3>{/*1*/}
-        {/*2*/}
+        <h3>Queso</h3>{/*2*/}
         <label>Mozarella</label>
         <input
           type="checkbox"

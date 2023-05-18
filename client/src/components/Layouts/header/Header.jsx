@@ -1,10 +1,10 @@
 import React,{useEffect,useState} from 'react'
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import { dataUser } from "../../../api/api";
 import Cookie from "universal-cookie";
 
 export const Header = () => {
-
+    const navigate = useNavigate()
     const cookie = new Cookie()
     let validate = cookie.get("token")
     const [infoUser,setInfoUser] = useState({
@@ -23,10 +23,10 @@ export const Header = () => {
             const response = await dataUser()
             setInfoUser(response.data.data);
             console.log(response);
-            
         }
         loadInfoUser()
     },[])
+
     useEffect(()=>{
         if(validate){
             setVerifyInfo(true)
@@ -45,6 +45,10 @@ export const Header = () => {
         }
     }
     window-addEventListener('scroll', setActiveNavbar)
+
+    const login = () =>{
+        navigate("/LogIn")
+    }
 
   return (
     <header>
@@ -65,13 +69,13 @@ export const Header = () => {
                     <div className="usuario-btn">
                     <img src={infoUser.iconUser} alt="" /> 
                     </div>
-                </div>:
+                </div>  :
                 <div className="usuario">
                     <Link to="/LogIn" className="btn">
                     Iniciar sesión           
                     </Link> 
                     <div className="usuario-btn">
-                       <img src="https://res.cloudinary.com/de2sdukuk/image/upload/v1682083366/usericon_eqm409.jpg" alt="" /> 
+                       <img src="https://res.cloudinary.com/de2sdukuk/image/upload/v1682083366/usericon_eqm409.jpg" alt="Usuario" onClick={login}/> 
                     </div>
                 </div>}
             </nav>

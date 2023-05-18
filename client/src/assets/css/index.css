@@ -4,7 +4,7 @@
     --color-primer:#ffbb00;
     --color-segundo:#ff0000;
     --color-tercer:#039e00;
-    --color-cuarto:#0b1315;
+    --color-cuarto:#272829;
     --color-quinto:#ffffff;
     --boton-padding: 10px 25px;
     background: var(--color-quinto);
@@ -51,8 +51,8 @@ header{
     cursor: pointer;
 }
 .nav .logo a{
-    content: url(../img/Logo.png);
-    height: 70px;
+    content: url(../img/rabanadapizza.png);
+    height: 60px;
     width: auto;
     transition: all 0.5s ease 0s;
 }
@@ -81,23 +81,9 @@ header{
     gap: 10px;
     width: max-content;
 }
-    
-.nav .usuario-btn{
-    font-weight: 700;
-    align-items: center;
-    background: var(--color-quinto);
-    border-radius: 50px;
-    cursor: pointer;
-    height: 70px;
-    width: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .nav .usuario-btn img{
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
 }
 .nav .btn{
@@ -140,7 +126,6 @@ header{
     display: grid;
     width: 80%;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 100px 70px 120px;
     align-items: center;
     gap: 20px;
     justify-items: center;
@@ -150,6 +135,7 @@ header{
 .feature-b h2{
     font-size: 30px;
     font-weight: 900;
+    line-height: 100px;
 }
 .feature-b-h21{
     grid-column: 1/2;
@@ -198,7 +184,7 @@ header{
     justify-content: space-evenly;
     align-items: center;
     background: var(--color-quinto);
-    border: var(--color-primer) solid 15px;
+    border: #fdcd2d  solid 15px;
     border-radius: 300px;
 }
 .about-us-c{
@@ -218,9 +204,16 @@ header{
     font-weight: 100;
 }
 .about-us p:first-child{
-    content: url(../img/pizza.png);
+    content: url(../img/pizzaaa.png);
     width: auto;
     height: 300px;
+}
+.about-us::after{
+    content: url(../img/quesoderretido.png);
+    position: absolute;
+    bottom: -1987px;
+    width: 10px;
+
 }
 
 
@@ -273,7 +266,7 @@ form input::selection{
 .form-contain-f a{
     color: var(--color-quinto);
     text-decoration: none;
-    font-size: 1.1em;
+    font-size: 1em;
 }
 .form-contain-f-btn{
     display: flex;

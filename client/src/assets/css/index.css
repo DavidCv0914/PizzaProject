@@ -208,12 +208,20 @@ header{
     width: auto;
     height: 300px;
 }
-.about-us::after{
+/* .about-us::after{
     content: url(../img/quesoderretido.png);
     position: absolute;
-    bottom: -1987px;
+    bottom: -1983px;
     width: 10px;
-
+    left: 350px;
+    -webkit-box-reflect: right;
+} */
+.about-us::before{
+    content: url(../img/quesoderretido.png);
+    position: absolute;
+    bottom: -1984px;
+    width: 10px;
+    -webkit-box-reflect: left;
 }
 
 

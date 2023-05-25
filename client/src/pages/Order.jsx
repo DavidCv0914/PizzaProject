@@ -1,79 +1,19 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
+import { contextPage } from "../context/context";
 
 export const Order = () => {
 
-  const [isChecked1, setIsChecked1] = useState(false);
-  const [isChecked2, setIsChecked2] = useState(false);
-  const [isChecked3, setIsChecked3] = useState(false);
-  const [isChecked4, setIsChecked4] = useState(false);
-  const [isChecked5, setIsChecked5] = useState(false);
-  const [isChecked6, setIsChecked6] = useState(false);
-  const [isChecked7, setIsChecked7] = useState(false);
-  const [isChecked8, setIsChecked8] = useState(false);
-  const [isChecked9, setIsChecked9] = useState(false);
-  const [isChecked10, setIsChecked10] = useState(false);
-  const [validateForm1, setValidateForm1] = useState(false);
-  const [isCheckedQueso1, setIsCheckedQueso1] = useState(false);
-  const [isCheckedQueso2, setIsCheckedQueso2] = useState(false);
-  const [isCheckedQueso3, setIsCheckedQueso3] = useState(false);
-  const [isCheckedQueso4, setIsCheckedQueso4] = useState(false);
-  const [isCheckedQueso5, setIsCheckedQueso5] = useState(false);
-  const [isCheckedQueso6, setIsCheckedQueso6] = useState(false);
-  const [isCheckedQueso7, setIsCheckedQueso7] = useState(false);
-  const [isCheckedQueso8, setIsCheckedQueso8] = useState(false);
-  const [validateForm2, setValidateForm2] = useState(false);
-  const [isCheckedVegetales1, setIsCheckedVegetales1] = useState(false);
-  const [isCheckedVegetales2, setIsCheckedVegetales2] = useState(false);
-  const [isCheckedVegetales3, setIsCheckedVegetales3] = useState(false);
-  const [isCheckedVegetales4, setIsCheckedVegetales4] = useState(false);
-  const [isCheckedVegetales5, setIsCheckedVegetales5] = useState(false);
-  const [isCheckedVegetales6, setIsCheckedVegetales6] = useState(false);
-  const [isCheckedVegetales7, setIsCheckedVegetales7] = useState(false);
-  const [isCheckedVegetales8, setIsCheckedVegetales8] = useState(false);
+  let context = useContext(contextPage);
+
+  const [validateForm5, setValidateForm5] = useState(false);
+  const [validateForm4, setValidateForm4] = useState(false);
   const [validateForm3, setValidateForm3] = useState(false);
+  const [validateForm2, setValidateForm2] = useState(false);
+  const [validateForm1, setValidateForm1] = useState(false);
 
-  function handleCheckboxChange1() {
-    setIsChecked1(!isChecked1);
-  }
-
-  function handleCheckboxChange2() {
-    setIsChecked2(!isChecked2);
-  }
-
-  function handleCheckboxChange3() {
-    setIsChecked3(!isChecked3);
-  }
-
-  function handleCheckboxChange4() {
-    setIsChecked4(!isChecked4);
-  }
-
-  function handleCheckboxChange5() {
-    setIsChecked5(!isChecked5);
-  }
-
-  function handleCheckboxChange6() {
-    setIsChecked6(!isChecked6);
-  }
-
-  function handleCheckboxChange7() {
-    setIsChecked7(!isChecked7);
-  }
-
-  function handleCheckboxChange8() {
-    setIsChecked8(!isChecked8);
-  }
-
-  function handleCheckboxChange9() {
-    setIsChecked9(!isChecked9);
-  }
-
-  function handleCheckboxChange10() {
-    setIsChecked10(!isChecked10);
-  }
   const handleSubmitMeats = (e) =>{
     e.preventDefault();
-    let arayCheked = [isChecked1,isChecked2,isChecked3,isChecked4,isChecked5,isChecked6,isChecked7,isChecked8,isChecked9,isChecked10]
+    let arayCheked = [context.isChecked1,context.isChecked2,context.isChecked3,context.isChecked4,context.isChecked5,context.isChecked6,context.isChecked7,context.isChecked8,context.isChecked9,context.isChecked10]
     let validate = []
     for (let i = 0; i < 10; i++) {
       if (arayCheked[i]) {
@@ -93,41 +33,9 @@ export const Order = () => {
     }
   }
 
-  function handleCheckboxChangeQueso1() {
-    setIsCheckedQueso1(!isCheckedQueso1);
-  }
-
-  function handleCheckboxChangeQueso2() {
-    setIsCheckedQueso2(!isCheckedQueso2);
-  }
-
-  function handleCheckboxChangeQueso3() {
-    setIsCheckedQueso3(!isCheckedQueso3);
-  }
-
-  function handleCheckboxChangeQueso4() {
-    setIsCheckedQueso4(!isCheckedQueso4);
-  }
-
-  function handleCheckboxChangeQueso5() {
-    setIsCheckedQueso5(!isCheckedQueso5);
-  }
-
-  function handleCheckboxChangeQueso6() {
-    setIsCheckedQueso6(!isCheckedQueso6);
-  }
-
-  function handleCheckboxChangeQueso7() {
-    setIsCheckedQueso7(!isCheckedQueso7);
-  }
-
-  function handleCheckboxChangeQueso8() {
-    setIsCheckedQueso8(!isCheckedQueso8);
-  }
-
   const handleSubmitQueso = (e) =>{
     e.preventDefault();
-    let arayCheked = [isCheckedQueso1,isCheckedQueso2,isCheckedQueso3,isCheckedQueso4,isCheckedQueso5,isCheckedQueso6,isCheckedQueso7,isCheckedQueso8]
+    let arayCheked = [context.isCheckedQueso1,context.isCheckedQueso2,context.isCheckedQueso3,context.isCheckedQueso4,context.isCheckedQueso5,context.isCheckedQueso6,context.isCheckedQueso7,context.isCheckedQueso8]
     let validate = []
     for (let i = 0; i < 10; i++) {
       if (arayCheked[i]) {
@@ -148,43 +56,10 @@ export const Order = () => {
       setValidateForm2(true)
     }
   }
-
-
-  function handleCheckboxChangeVegetales1() {
-    setIsCheckedVegetales1(!isCheckedVegetales1);
-  }
-
-  function handleCheckboxChangeVegetales2() {
-    setIsCheckedVegetales2(!isCheckedVegetales2);
-  }
-
-  function handleCheckboxChangeVegetales3() {
-    setIsCheckedVegetales3(!isCheckedVegetales3);
-  }
-
-  function handleCheckboxChangeVegetales4() {
-    setIsCheckedVegetales4(!isCheckedVegetales4);
-  }
-
-  function handleCheckboxChangeVegetales5() {
-    setIsCheckedVegetales5(!isCheckedVegetales5);
-  }
-
-  function handleCheckboxChangeVegetales6() {
-    setIsCheckedVegetales6(!isCheckedVegetales6);
-  }
-
-  function handleCheckboxChangeVegetales7() {
-    setIsCheckedVegetales7(!isCheckedVegetales7);
-  }
-
-  function handleCheckboxChangeVegetales8() {
-    setIsCheckedVegetales8(!isCheckedVegetales8);
-  }
-
+  
   const handleSubmitVegetales = (e) =>{
     e.preventDefault();
-    let arayCheked = [isCheckedVegetales1,isCheckedVegetales2,isCheckedVegetales3,isCheckedVegetales4,isCheckedVegetales5,isCheckedVegetales6,isCheckedVegetales7,isCheckedVegetales8]
+    let arayCheked = [context.isCheckedVegetales1,context.isCheckedVegetales2,context.isCheckedVegetales3,context.isCheckedVegetales4,context.isCheckedVegetales5,context.isCheckedVegetales6,context.isCheckedVegetales7,context.isCheckedVegetales8]
     let validate = []
     for (let i = 0; i < 10; i++) {
       if (arayCheked[i]) {
@@ -205,7 +80,55 @@ export const Order = () => {
       setValidateForm3(true)
     }
   }
-  console.log(validateForm3);
+
+  const handleSubmitSalsas = (e) =>{
+    e.preventDefault();
+    let arayCheked = [context.isCheckedSalsas1,context.isCheckedSalsas2,context.isCheckedSalsas3,context.isCheckedSalsas4,context.isCheckedSalsas5,context.isCheckedSalsas6]
+    let validate = []
+    for (let i = 0; i < 10; i++) {
+      if (arayCheked[i]) {
+        validate.push(arayCheked[1])
+      }
+    }
+    
+    if (validate.length > 2 ) {
+      setValidateForm4(false)
+      alert("No puede poner mas de dos ingredientes")
+      
+    }else if( validate.length == 0){
+      setValidateForm4(false)
+      alert("tiene que poner al menos un ingrediente")
+      
+    }else{
+      alert("validado")
+      setValidateForm4(true)
+    }
+  }
+
+  const handleSubmitAderezos = (e) =>{
+    e.preventDefault();
+    let arayCheked = [context.isCheckedAderezos1,context.isCheckedAderezos2,context.isCheckedAderezos3,context.isCheckedAderezos4,context.isCheckedAderezos5,context.isCheckedAderezos6]
+    let validate = []
+    for (let i = 0; i < 10; i++) {
+      if (arayCheked[i]) {
+        validate.push(arayCheked[1])
+      }
+    }
+    
+    if (validate.length > 2 ) {
+      setValidateForm5(false)
+      alert("No puede poner mas de dos ingredientes")
+      
+    }else if( validate.length == 0){
+      setValidateForm5(false)
+      alert("tiene que poner al menos un ingrediente")
+      
+    }else{
+      alert("validado")
+      setValidateForm5(true)
+    }
+  }
+  console.log(validateForm4);
   return (
     <>
       <section className="order-form">
@@ -216,71 +139,71 @@ export const Order = () => {
         
         <input
           type="checkbox"
-          checked={isChecked1}
-          onChange={handleCheckboxChange1}
+          checked={context.isChecked1}
+          onChange={context.handleCheckboxChange1}
         />
         <label>Pepperoni</label>
         
         <input
           type="checkbox"
-          checked={isChecked2}
-          onChange={handleCheckboxChange2}
+          checked={context.isChecked2}
+          onChange={context.handleCheckboxChange2}
         />
         <label>Jamón</label>
         
         <input
           type="checkbox"
-          checked={isChecked3}
-          onChange={handleCheckboxChange3}
+          checked={context.isChecked3}
+          onChange={context.handleCheckboxChange3}
         />
         <label>Salchicha</label>
         
         <input
           type="checkbox"
-          checked={isChecked4}
-          onChange={handleCheckboxChange4}
+          checked={context.isChecked4}
+          onChange={context.handleCheckboxChange4}
         />
         <label>Tocino</label>
         
         <input
           type="checkbox"
-          checked={isChecked5}
-          onChange={handleCheckboxChange5}
+          checked={context.isChecked5}
+          onChange={context.handleCheckboxChange5}
         />
         <label>Pollo</label>
         
         <input
           type="checkbox"
-          checked={isChecked6}
-          onChange={handleCheckboxChange6}
+          checked={context.isChecked6}
+          onChange={context.handleCheckboxChange6}
         />
         <label>Carne Molida</label>
         
         <input
           type="checkbox"
-          checked={isChecked7}
-          onChange={handleCheckboxChange7}
+          checked={context.isChecked7}
+          onChange={context.handleCheckboxChange7}
         />
         <label>Salami</label>
         
         <input
           type="checkbox"
-          checked={isChecked8}
-          onChange={handleCheckboxChange8}
+          checked={context.isChecked8}
+          onChange={context.handleCheckboxChange8}
         />
         <label>Chorizo</label>
         
         <input
           type="checkbox"
-          checked={isChecked9}
-          onChange={handleCheckboxChange9}
+          checked={context.isChecked9}
+          onChange={context.handleCheckboxChange9}
         />
         <label>Carne Molida</label>
         
         <input
           type="checkbox"
-          checked={isChecked10}
-          onChange={handleCheckboxChange10}
+          checked={context.isChecked10}
+          onChange={context.handleCheckboxChange10}
         />
         
         <label>Prosciutto</label>
@@ -293,50 +216,50 @@ export const Order = () => {
         <label>Mozarella</label>
         <input
           type="checkbox"
-          checked={isCheckedQueso1}
-          onChange={handleCheckboxChangeQueso1}
+          checked={context.isCheckedQueso1}
+          onChange={context.handleCheckboxChangeQueso1}
         />
         <label>Parmesano</label>
         <input
           type="checkbox"
-          checked={isCheckedQueso2}
-          onChange={handleCheckboxChangeQueso2}
+          checked={context.isCheckedQueso2}
+          onChange={context.handleCheckboxChangeQueso2}
         />
         <label>Cheddar</label>
         <input
           type="checkbox"
-          checked={isCheckedQueso3}
-          onChange={handleCheckboxChangeQueso3}
+          checked={context.isCheckedQueso3}
+          onChange={context.handleCheckboxChangeQueso3}
         />
         <label>Feta</label>
         <input
           type="checkbox"
-          checked={isCheckedQueso4}
-          onChange={handleCheckboxChangeQueso4}
+          checked={context.isCheckedQueso4}
+          onChange={context.handleCheckboxChangeQueso4}
         />
         <label>Cabra</label>
         <input
           type="checkbox"
-          checked={isCheckedQueso5}
-          onChange={handleCheckboxChangeQueso5}
+          checked={context.isCheckedQueso5}
+          onChange={context.handleCheckboxChangeQueso5}
         />
         <label>Ricotta</label>
         <input
           type="checkbox"
-          checked={isCheckedQueso6}
-          onChange={handleCheckboxChangeQueso6}
+          checked={context.isCheckedQueso6}
+          onChange={context.handleCheckboxChangeQueso6}
         />
         <label>Gorgonzola</label>
         <input
           type="checkbox"
-          checked={isCheckedQueso7}
-          onChange={handleCheckboxChangeQueso7}
+          checked={context.isCheckedQueso7}
+          onChange={context.handleCheckboxChangeQueso7}
         />
         <label>Azul</label>
         <input
           type="checkbox"
-          checked={isCheckedQueso8}
-          onChange={handleCheckboxChangeQueso8}
+          checked={context.isCheckedQueso8}
+          onChange={context.handleCheckboxChangeQueso8}
         />
         <button>Checar</button>
       </form>
@@ -346,120 +269,134 @@ export const Order = () => {
         <label>Champiñones</label>
         <input
           type="checkbox"
-          checked={isCheckedVegetales1}
-          onChange={handleCheckboxChangeVegetales1}
+          checked={context.isCheckedVegetales1}
+          onChange={context.handleCheckboxChangeVegetales1}
         />
         <label>Pimiento verde</label>
         <input
           type="checkbox"
-          checked={isCheckedVegetales2}
-          onChange={handleCheckboxChangeVegetales2}
+          checked={context.isCheckedVegetales2}
+          onChange={context.handleCheckboxChangeVegetales2}
         />
         <label>Maiz</label>
         <input
           type="checkbox"
-          checked={isCheckedVegetales3}
-          onChange={handleCheckboxChangeVegetales3}
+          checked={context.isCheckedVegetales3}
+          onChange={context.handleCheckboxChangeVegetales3}
         />
         <label>Cebolla</label>
         <input
           type="checkbox"
-          checked={isCheckedVegetales4}
-          onChange={handleCheckboxChangeVegetales4}
+          checked={context.isCheckedVegetales4}
+          onChange={context.handleCheckboxChangeVegetales4}
         />
         <label>Tomate</label>
         <input
           type="checkbox"
-          checked={isCheckedVegetales5}
-          onChange={handleCheckboxChangeVegetales5}
+          checked={context.isCheckedVegetales5}
+          onChange={context.handleCheckboxChangeVegetales5}
         />
         <label>Espinacas</label>
         <input
           type="checkbox"
-          checked={isCheckedVegetales6}
-          onChange={handleCheckboxChangeVegetales6}
+          checked={context.isCheckedVegetales6}
+          onChange={context.handleCheckboxChangeVegetales6}
         />
         <label>Piña</label>
         <input
           type="checkbox"
-          checked={isCheckedVegetales7}
-          onChange={handleCheckboxChangeVegetales7}
+          checked={context.isCheckedVegetales7}
+          onChange={context.handleCheckboxChangeVegetales7}
         />
         <label>Tomates secos</label>
         <input
           type="checkbox"
-          checked={isCheckedVegetales8}
-          onChange={handleCheckboxChangeVegetales8}
+          checked={context.isCheckedVegetales8}
+          onChange={context.handleCheckboxChangeVegetales8}
         />
         <button>Checar</button>
       </form>
       
-      <form>
+      <form onSubmit={handleSubmitSalsas}>
       <h3>Salsas</h3>{/*2*/}
         <label>Salsa de tomate</label>
         <input
           type="checkbox"
-          
+          checked={context.isCheckedSalsas1}
+          onChange={context.handleCheckboxChangeSalsas1}
         />
         <label>Salsa BBQ</label>
         <input
           type="checkbox"
-          
+          checked={context.isCheckedSalsas2}
+          onChange={context.handleCheckboxChangeSalsas2}
         />
         <label>Salsa Alfredo</label>
         <input
           type="checkbox"
-          
+          checked={context.isCheckedSalsas3}
+          onChange={context.handleCheckboxChangeSalsas3}
         />
         <label>Salsa pesto</label>
         <input
           type="checkbox"
-          
+          checked={context.isCheckedSalsas4}
+          onChange={context.handleCheckboxChangeSalsas4}
         />
         <label>Salsa Ranchera</label>
         <input
           type="checkbox"
-          
+          checked={context.isCheckedSalsas5}
+          onChange={context.handleCheckboxChangeSalsas5}
         />
         <label>Salsa de ajo</label>
         <input
           type="checkbox"
-          
+          checked={context.isCheckedSalsas6}
+          onChange={context.handleCheckboxChangeSalsas6}
         />
+        <button>Checar</button>
       </form>
 
-      <form>
+      <form onSubmit={handleSubmitAderezos}>
       <h3>Aderezos</h3>{/*3*/}
       <label>Orégano</label>
         <input
           type="checkbox"
-          
+          checked={context.isCheckedAderezos1}
+          onChange={context.handleCheckboxChangeAderezos1}
         />
         <label>Albaca</label>
         <input
           type="checkbox"
-          
+          checked={context.isCheckedAderezos2}
+          onChange={context.handleCheckboxChangeAderezos2}
         />
         <label>Perejil</label>
         <input
           type="checkbox"
-          
+          checked={context.isCheckedAderezos3}
+          onChange={context.handleCheckboxChangeAderezos3}
         />
         <label>Pimienta negra</label>
         <input
           type="checkbox"
-          
+          checked={context.isCheckedAderezos4}
+          onChange={context.handleCheckboxChangeAderezos4}
         />
         <label>Sal</label>
         <input
           type="checkbox"
-          
+          checked={context.isCheckedAderezos5}
+          onChange={context.handleCheckboxChangeAderezos5}
         />
         <label>Ajo picado</label>
         <input
           type="checkbox"
-          
+          checked={context.isCheckedAderezos6}
+          onChange={context.handleCheckboxChangeAderezos6}
         />
+        <button>Checar</button>
       </form>
       </section>
     </>

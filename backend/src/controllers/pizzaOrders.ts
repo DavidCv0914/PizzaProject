@@ -9,7 +9,7 @@ class PizzaOrder {
         dotenv.config();
     }
 
-    public async generateOrder(req:Request,res:Response) {
+    public async generatePizza(req:Request,res:Response) {
         try {
             const token = req.header("token")
             const {ingredient1,ingredient2,ingredient3,ingredient4,ingredient5,size,cost,address} = req.body || "no hay"
@@ -44,7 +44,7 @@ class PizzaOrder {
                                 if (insertRecipe[0].affectedRows != 0) {
                                     res.json("generate order")
                                 }else{
-                                    res.json("entonces")
+                                    res.json("no generate")
                                 }
                             }else{
                                 res.json("no generate")

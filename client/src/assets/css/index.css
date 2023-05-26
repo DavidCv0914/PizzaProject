@@ -19,6 +19,10 @@
 body{
     background-color: var(--color-quinto);
 }
+*::selection{
+    background: var(--color-quinto);
+    color: var(--color-segundo);
+}
 header{
     background:linear-gradient(#1f27297e, #0b13154c), url(../img/Hero.jpg) no-repeat;
     background-position: center;
@@ -92,7 +96,7 @@ header{
     font-weight: 900;
 }
 
-.btn button::selection{
+.btn::selection{
     background: none;
     color: var(--color-segundo);
 }

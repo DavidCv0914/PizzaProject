@@ -10,7 +10,7 @@ class RoutesOrder {
     }
 
     config():void{
-       this.orderRoute.post('/generatePizza',pizzasOrder.generatePizza);
+       this.orderRoute.post('/generateOrder',pizzasOrder.generateOrder);
      
     }
 }

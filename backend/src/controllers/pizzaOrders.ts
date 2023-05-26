@@ -9,10 +9,10 @@ class PizzaOrder {
         dotenv.config();
     }
 
-    public async generatePizza(req:Request,res:Response) {
+    public async generateOrder(req:Request,res:Response) {
         try {
             const token = req.header("token")
-            const {ingredient1,ingredient2,ingredient3,ingredient4,ingredient5,size,cost,address} = req.body || "no hay"
+            const {ingredient1,ingredient2,ingredient3,ingredient4,ingredient5,size,cost,address,nameSoda,typeSoda,sizeSoda,costSoda,nameAdditional,typeAdditional,costAdditional} = req.body || "no hay"
             const ingredient6 = req.body.ingredient6 || "no hay"
             const ingredient7 = req.body.ingredient7 || "no hay"
             const ingredient8 = req.body.ingredient8 || "no hay"
@@ -38,9 +38,13 @@ class PizzaOrder {
                         
                         if (responseIngredients[0].length > 0 && responsePedido[0].length > 0) {
                             const responsePizza:any[] = await conexion.query("INSERT INTO pizza(tamaño,precio,id_pedido1) VALUES (?,?,?)",[size,cost,responsePedido[0][0].id_pedido]);
+                            const responseRecipePizza: any[] = await conexion.query("SELECT * FROM pizza WHERE id_pizza = LAST_INSERT_ID()");
+                            const insertSoda:any[] = await conexion.query("INSERT INTO bebida(tipo, tamaño, nombre, precio, id_pedido2) VALUES (?,?,?,?,?)",[typeSoda,sizeSoda,nameSoda,costSoda,responsePedido[0][0].id_pedido]);
+                            const insertAdditional:any[] = await conexion.query("INSERT INTO adicional( tipo, nombre, precio, id_pedido3) VALUES (?,?,?,?)",[typeAdditional,nameAdditional,costAdditional,responsePedido[0][0].id_pedido])
                             if (responsePizza[0].affectedRows !=0) {
-                                const responseRecipePizza: any[] = await conexion.query("SELECT * FROM pizza WHERE id_pizza = LAST_INSERT_ID()");
+                                
                                 const insertRecipe:any[] = await conexion.query("INSERT INTO receta(id_pizza1,id_lista1) VALUES (?,?)",[responseRecipePizza[0][0].id_pizza,responseIngredients[0][0].id_lista]);
+
                                 if (insertRecipe[0].affectedRows != 0) {
                                     res.json("generate order")
                                 }else{

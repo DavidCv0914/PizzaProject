@@ -45,6 +45,21 @@ export default function ContextProvider({children}){
   const [isCheckedAderezos4, setIsCheckedAderezos4] = useState(false);
   const [isCheckedAderezos5, setIsCheckedAderezos5] = useState(false);
   const [isCheckedAderezos6, setIsCheckedAderezos6] = useState(false);
+  const [ingredients,setIngredients] = useState([])
+  const [order, setOrder] = useState({
+    ingredient1:"",
+    ingredient2:"",
+    ingredient3:"",
+    ingredient4:"",
+    ingredient5:"",
+    ingredient6:"",
+    ingredient7:"",
+    ingredient8:"",
+    ingredient9:"",
+    size:"",
+    cost:0,
+    address:""
+  });
   
 
   function handleCheckboxChange1() {
@@ -199,9 +214,10 @@ export default function ContextProvider({children}){
     setIsCheckedAderezos6(!isCheckedAderezos6);
   }
 
+   console.log(order);
   
   return (
-    <contextPage.Provider value={{isChecked1,isChecked2,isChecked3,isChecked4,isChecked5,isChecked6,isChecked7,isChecked8,isChecked9,isChecked10,isCheckedAderezos1,isCheckedAderezos2,isCheckedAderezos3,isCheckedAderezos4,isCheckedAderezos5,isCheckedAderezos6,isCheckedQueso1,isCheckedQueso2,isCheckedQueso3,isCheckedQueso4,isCheckedQueso5,isCheckedQueso6,isCheckedQueso7,isCheckedQueso8,isCheckedSalsas1,isCheckedSalsas2,isCheckedSalsas3,isCheckedSalsas4,isCheckedSalsas5,isCheckedSalsas6,isCheckedVegetales1,isCheckedVegetales2,isCheckedVegetales3,isCheckedVegetales4,isCheckedVegetales5,isCheckedVegetales6,isCheckedVegetales7,isCheckedVegetales8,handleCheckboxChange1,handleCheckboxChange2,handleCheckboxChange3,handleCheckboxChange4,handleCheckboxChange5,handleCheckboxChange6,handleCheckboxChange7,handleCheckboxChange8,handleCheckboxChange9,handleCheckboxChange10,handleCheckboxChangeAderezos1,handleCheckboxChangeAderezos2,handleCheckboxChangeAderezos3,handleCheckboxChangeAderezos4,handleCheckboxChangeAderezos5,handleCheckboxChangeAderezos6,handleCheckboxChangeQueso1,handleCheckboxChangeQueso2,handleCheckboxChangeQueso3,handleCheckboxChangeQueso4,handleCheckboxChangeQueso5,handleCheckboxChangeQueso6,handleCheckboxChangeQueso7,handleCheckboxChangeQueso8,handleCheckboxChangeSalsas1,handleCheckboxChangeSalsas2,handleCheckboxChangeSalsas3,handleCheckboxChangeSalsas4,handleCheckboxChangeSalsas5,handleCheckboxChangeSalsas6,handleCheckboxChangeVegetales1,handleCheckboxChangeVegetales2,handleCheckboxChangeVegetales3,handleCheckboxChangeVegetales4,handleCheckboxChangeVegetales5,handleCheckboxChangeVegetales6,handleCheckboxChangeVegetales7,handleCheckboxChangeVegetales8,}}>
+    <contextPage.Provider value={{isChecked1,isChecked2,isChecked3,isChecked4,isChecked5,isChecked6,isChecked7,isChecked8,isChecked9,isChecked10,isCheckedAderezos1,isCheckedAderezos2,isCheckedAderezos3,isCheckedAderezos4,isCheckedAderezos5,isCheckedAderezos6,isCheckedQueso1,isCheckedQueso2,isCheckedQueso3,isCheckedQueso4,isCheckedQueso5,isCheckedQueso6,isCheckedQueso7,isCheckedQueso8,isCheckedSalsas1,isCheckedSalsas2,isCheckedSalsas3,isCheckedSalsas4,isCheckedSalsas5,isCheckedSalsas6,isCheckedVegetales1,isCheckedVegetales2,isCheckedVegetales3,isCheckedVegetales4,isCheckedVegetales5,isCheckedVegetales6,isCheckedVegetales7,isCheckedVegetales8,handleCheckboxChange1,handleCheckboxChange2,handleCheckboxChange3,handleCheckboxChange4,handleCheckboxChange5,handleCheckboxChange6,handleCheckboxChange7,handleCheckboxChange8,handleCheckboxChange9,handleCheckboxChange10,handleCheckboxChangeAderezos1,handleCheckboxChangeAderezos2,handleCheckboxChangeAderezos3,handleCheckboxChangeAderezos4,handleCheckboxChangeAderezos5,handleCheckboxChangeAderezos6,handleCheckboxChangeQueso1,handleCheckboxChangeQueso2,handleCheckboxChangeQueso3,handleCheckboxChangeQueso4,handleCheckboxChangeQueso5,handleCheckboxChangeQueso6,handleCheckboxChangeQueso7,handleCheckboxChangeQueso8,handleCheckboxChangeSalsas1,handleCheckboxChangeSalsas2,handleCheckboxChangeSalsas3,handleCheckboxChangeSalsas4,handleCheckboxChangeSalsas5,handleCheckboxChangeSalsas6,handleCheckboxChangeVegetales1,handleCheckboxChangeVegetales2,handleCheckboxChangeVegetales3,handleCheckboxChangeVegetales4,handleCheckboxChangeVegetales5,handleCheckboxChangeVegetales6,handleCheckboxChangeVegetales7,handleCheckboxChangeVegetales8,order,setOrder,ingredients,setIngredients,}}>
         {children}
     </contextPage.Provider>
   )

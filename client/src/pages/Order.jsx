@@ -4,6 +4,7 @@ import { contextPage } from "../context/context";
 export const Order = () => {
   let context = useContext(contextPage);
 
+  const [validateForm6, setValidateForm6] = useState(false);
   const [validateForm5, setValidateForm5] = useState(false);
   const [validateForm4, setValidateForm4] = useState(false);
   const [validateForm3, setValidateForm3] = useState(false);
@@ -162,6 +163,35 @@ export const Order = () => {
       setValidateForm5(true);
     }
   };
+
+  const handleSubmitTypeBebida = (e) => {
+    e.preventDefault()
+    let arayCheked = [
+      context.isCheckedBebidas1,
+      context.isCheckedBebidas2,
+      context.isCheckedBebidas3,
+      context.isCheckedBebidas4,
+      context.isCheckedBebidas5,
+      context.isCheckedBebidas6,
+    ];
+    let validate = [];
+    for (let i = 0; i < 10; i++) {
+      if (arayCheked[i]) {
+        validate.push(arayCheked[1]);
+      }
+    }
+
+    if (validate.length > 1) {
+      setValidateForm6(false);
+      alert("No puede agregar mas de una bebida");
+    } else if (validate.length == 0) {
+      setValidateForm6(false);
+      alert("tiene que poner al menos una bebida");
+    } else {
+      alert("validado");
+      setValidateForm6(true);
+    }
+  }
 
   const confirmPizza = () => {
     if (validateForm1 && validateForm2 && validateForm3 && validateForm4 && validateForm5) {
@@ -341,7 +371,7 @@ export const Order = () => {
   };
 
   return (
-    <>
+  
       <section className="order-form">
         <form onSubmit={handleSubmitMeats}>
 
@@ -353,7 +383,6 @@ export const Order = () => {
               type="checkbox"
               checked={context.isChecked1}
               onChange={context.handleCheckboxChange1}
-              // onClick={()=>ingredients.push("Pepperoni")}
             />
             <label>Pepperoni</label>
 
@@ -615,8 +644,29 @@ export const Order = () => {
           />
           <button>Checar</button>
         </form>
-        <button onClick={confirmPizza}>confirmar</button>
-      </section>
-    </>
+        <button onClick={confirmPizza}>Confirmar Pizza</button>
+        <form onSubmit={handleSubmitTypeBebida}>
+          <h3>Bebida</h3>
+          <input type="checkbox" checked={context.isCheckedBebidas1} onChange={context.handleCheckboxChangeBebidas1} />
+          <label>Gaseosa</label>
+
+          <input type="checkbox" checked={context.isCheckedBebidas2} onChange={context.handleCheckboxChangeBebidas2} />
+          <label>Té</label>
+
+          <input type="checkbox" checked={context.isCheckedBebidas3} onChange={context.handleCheckboxChangeBebidas3} />
+          <label>Agua</label>
+
+          <input type="checkbox" checked={context.isCheckedBebidas4} onChange={context.handleCheckboxChangeBebidas4} />
+          <label>Cerveza</label>
+
+          <input type="checkbox" checked={context.isCheckedBebidas5} onChange={context.handleCheckboxChangeBebidas5} />
+          <label>Jugo natural</label>
+
+          <input type="checkbox" checked={context.isCheckedBebidas6} onChange={context.handleCheckboxChangeBebidas6} />
+          <label>Jugos artificiales</label>
+          <button>Checar</button>
+        </form>
+        
+      </section>  
   );
 };

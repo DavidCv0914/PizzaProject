@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-05-2023 a las 18:50:59
--- Versión del servidor: 10.4.22-MariaDB
--- Versión de PHP: 8.1.2
+-- Tiempo de generación: 28-05-2023 a las 23:30:11
+-- Versión del servidor: 10.4.27-MariaDB
+-- Versión de PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,15 +33,7 @@ CREATE TABLE `adicional` (
   `nombre` varchar(50) DEFAULT NULL,
   `precio` int(11) DEFAULT NULL,
   `id_pedido3` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `adicional`
---
-
-INSERT INTO `adicional` (`id_adicional`, `tipo`, `nombre`, `precio`, `id_pedido3`) VALUES
-(1, 'panaderia', 'dedo', 2000, 15),
-(2, 'panaderia', 'dedo', 2000, 16);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -57,7 +49,7 @@ CREATE TABLE `admin` (
   `cellphone` varchar(11) NOT NULL,
   `iconUser` varchar(100) DEFAULT NULL,
   `password` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -72,15 +64,7 @@ CREATE TABLE `bebida` (
   `nombre` varchar(50) DEFAULT NULL,
   `precio` int(11) DEFAULT NULL,
   `id_pedido2` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `bebida`
---
-
-INSERT INTO `bebida` (`id_bebida`, `tipo`, `tamaño`, `nombre`, `precio`, `id_pedido2`) VALUES
-(1, 'gaseosa', '1000ml', 'coca-cola', 2000, 15),
-(2, 'gaseosa', '1000ml', 'coca-cola', 2000, 16);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -99,24 +83,7 @@ CREATE TABLE `ingredientes` (
   `ingrediente7` varchar(100) DEFAULT NULL,
   `ingrediente8` varchar(100) DEFAULT NULL,
   `ingrediente9` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `ingredientes`
---
-
-INSERT INTO `ingredientes` (`id_lista`, `ingrediente1`, `ingrediente2`, `ingrediente3`, `ingrediente4`, `ingrediente5`, `ingrediente6`, `ingrediente7`, `ingrediente8`, `ingrediente9`) VALUES
-(15, 'pollo', 'pollo', 'pollo', 'pollo', 'pollo', 'no hay', 'no hay', 'no hay', 'no hay'),
-(16, 'pollo', 'pollo', 'pollo', 'pollo', 'pollo', 'no hay', 'no hay', 'no hay', 'no hay'),
-(17, 'pollo', 'pollo', 'pollo', 'pollo', 'pollo', 'no hay', 'no hay', 'no hay', 'no hay'),
-(18, 'pollo', 'pollo', 'pollo', 'pollo', 'pollo', 'no hay', 'no hay', 'no hay', 'no hay'),
-(19, 'pollo', 'pollo', 'pollo', 'pollo', 'pollo', 'no hay', 'no hay', 'no hay', 'no hay'),
-(20, 'pollo', 'pollo', 'pollo', 'pollo', 'pollo', 'no hay', 'no hay', 'no hay', 'no hay'),
-(21, 'pollo', 'pollo', 'pollo', 'pollo', 'pollo', 'no hay', 'no hay', 'no hay', 'no hay'),
-(22, 'pollo', 'pollo', 'pollo', 'pollo', 'pollo', 'no hay', 'no hay', 'no hay', 'no hay'),
-(23, 'pollo', 'pollo', 'pollo', 'pollo', 'pollo', 'no hay', 'no hay', 'no hay', 'no hay'),
-(24, 'pollo', 'pollo', 'pollo', 'pollo', 'pollo', 'no hay', 'no hay', 'no hay', 'no hay'),
-(25, 'pollo', 'pollo', 'pollo', 'pollo', 'pollo', 'no hay', 'no hay', 'no hay', 'no hay');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -129,24 +96,7 @@ CREATE TABLE `pedido` (
   `email_profile` varchar(100) DEFAULT NULL,
   `direccion` varchar(100) NOT NULL,
   `estado` varchar(100) DEFAULT 'En espera'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `pedido`
---
-
-INSERT INTO `pedido` (`id_pedido`, `email_profile`, `direccion`, `estado`) VALUES
-(6, 'dabeats2004@gmail.com', 'llanitos', 'En espera'),
-(7, 'dabeats2004@gmail.com', 'llanitos', 'En espera'),
-(8, 'dabeats2004@gmail.com', 'llanitos', 'En espera'),
-(9, 'dabeats2004@gmail.com', 'llanitos', 'En espera'),
-(10, 'dabeats2004@gmail.com', 'llanitos', 'En espera'),
-(11, 'dabeats2004@gmail.com', 'llanitos', 'En espera'),
-(12, 'dabeats2004@gmail.com', 'llanitos', 'En espera'),
-(13, 'dabeats2004@gmail.com', 'llanitos', 'En espera'),
-(14, 'dabeats2004@gmail.com', 'llanitos', 'En espera'),
-(15, 'dabeats2004@gmail.com', 'llanitos', 'En espera'),
-(16, 'dabeats2004@gmail.com', 'llanitos', 'En espera');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -159,17 +109,7 @@ CREATE TABLE `pizza` (
   `tamaño` varchar(50) NOT NULL,
   `precio` int(10) NOT NULL,
   `id_pedido1` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `pizza`
---
-
-INSERT INTO `pizza` (`id_pizza`, `tamaño`, `precio`, `id_pedido1`) VALUES
-(4, '12cm', 10000, 13),
-(5, '12cm', 10000, 14),
-(6, '12cm', 10000, 15),
-(7, '12cm', 10000, 16);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -185,7 +125,7 @@ CREATE TABLE `profile` (
   `iconUser` varchar(100) DEFAULT NULL,
   `password` text NOT NULL,
   `codigo` int(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `profile`
@@ -207,16 +147,7 @@ CREATE TABLE `receta` (
   `id_pizza1` int(11) DEFAULT NULL,
   `id_recet1` int(11) NOT NULL,
   `id_lista1` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `receta`
---
-
-INSERT INTO `receta` (`id_pizza1`, `id_recet1`, `id_lista1`) VALUES
-(4, 3, 22),
-(5, 4, 23),
-(7, 5, 25);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Índices para tablas volcadas

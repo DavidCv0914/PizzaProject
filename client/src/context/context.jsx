@@ -45,6 +45,14 @@ export default function ContextProvider({children}){
   const [isCheckedAderezos4, setIsCheckedAderezos4] = useState(false);
   const [isCheckedAderezos5, setIsCheckedAderezos5] = useState(false);
   const [isCheckedAderezos6, setIsCheckedAderezos6] = useState(false);
+
+  const [isCheckedBebidas1, setIsCheckedBebidas1] = useState(false);
+  const [isCheckedBebidas2, setIsCheckedBebidas2] = useState(false);
+  const [isCheckedBebidas3, setIsCheckedBebidas3] = useState(false);
+  const [isCheckedBebidas4, setIsCheckedBebidas4] = useState(false);
+  const [isCheckedBebidas5, setIsCheckedBebidas5] = useState(false);
+  const [isCheckedBebidas6, setIsCheckedBebidas6] = useState(false);
+
   const [ingredients,setIngredients] = useState([])
   const [order, setOrder] = useState({
     ingredient1:"",
@@ -214,10 +222,35 @@ export default function ContextProvider({children}){
     setIsCheckedAderezos6(!isCheckedAderezos6);
   }
 
+  function handleCheckboxChangeBebidas1() {
+    setIsCheckedBebidas1(!isCheckedBebidas1);
+  }
+
+  function handleCheckboxChangeBebidas2() {
+    setIsCheckedBebidas2(!isCheckedBebidas2);
+  }
+
+  function handleCheckboxChangeBebidas3() {
+    setIsCheckedBebidas3(!isCheckedBebidas3);
+  }
+
+  function handleCheckboxChangeBebidas4() {
+    setIsCheckedBebidas4(!isCheckedBebidas4);
+  }
+
+  function handleCheckboxChangeBebidas5() {
+    setIsCheckedBebidas5(!isCheckedBebidas5);
+  }
+
+  function handleCheckboxChangeBebidas6() {
+    setIsCheckedBebidas6(!isCheckedBebidas6);
+  }
+
+
    console.log(order);
   
   return (
-    <contextPage.Provider value={{isChecked1,isChecked2,isChecked3,isChecked4,isChecked5,isChecked6,isChecked7,isChecked8,isChecked9,isChecked10,isCheckedAderezos1,isCheckedAderezos2,isCheckedAderezos3,isCheckedAderezos4,isCheckedAderezos5,isCheckedAderezos6,isCheckedQueso1,isCheckedQueso2,isCheckedQueso3,isCheckedQueso4,isCheckedQueso5,isCheckedQueso6,isCheckedQueso7,isCheckedQueso8,isCheckedSalsas1,isCheckedSalsas2,isCheckedSalsas3,isCheckedSalsas4,isCheckedSalsas5,isCheckedSalsas6,isCheckedVegetales1,isCheckedVegetales2,isCheckedVegetales3,isCheckedVegetales4,isCheckedVegetales5,isCheckedVegetales6,isCheckedVegetales7,isCheckedVegetales8,handleCheckboxChange1,handleCheckboxChange2,handleCheckboxChange3,handleCheckboxChange4,handleCheckboxChange5,handleCheckboxChange6,handleCheckboxChange7,handleCheckboxChange8,handleCheckboxChange9,handleCheckboxChange10,handleCheckboxChangeAderezos1,handleCheckboxChangeAderezos2,handleCheckboxChangeAderezos3,handleCheckboxChangeAderezos4,handleCheckboxChangeAderezos5,handleCheckboxChangeAderezos6,handleCheckboxChangeQueso1,handleCheckboxChangeQueso2,handleCheckboxChangeQueso3,handleCheckboxChangeQueso4,handleCheckboxChangeQueso5,handleCheckboxChangeQueso6,handleCheckboxChangeQueso7,handleCheckboxChangeQueso8,handleCheckboxChangeSalsas1,handleCheckboxChangeSalsas2,handleCheckboxChangeSalsas3,handleCheckboxChangeSalsas4,handleCheckboxChangeSalsas5,handleCheckboxChangeSalsas6,handleCheckboxChangeVegetales1,handleCheckboxChangeVegetales2,handleCheckboxChangeVegetales3,handleCheckboxChangeVegetales4,handleCheckboxChangeVegetales5,handleCheckboxChangeVegetales6,handleCheckboxChangeVegetales7,handleCheckboxChangeVegetales8,order,setOrder,ingredients,setIngredients,}}>
+    <contextPage.Provider value={{isChecked1,isChecked2,isChecked3,isChecked4,isChecked5,isChecked6,isChecked7,isChecked8,isChecked9,isChecked10,isCheckedAderezos1,isCheckedAderezos2,isCheckedAderezos3,isCheckedAderezos4,isCheckedAderezos5,isCheckedAderezos6,isCheckedQueso1,isCheckedQueso2,isCheckedQueso3,isCheckedQueso4,isCheckedQueso5,isCheckedQueso6,isCheckedQueso7,isCheckedQueso8,isCheckedSalsas1,isCheckedSalsas2,isCheckedSalsas3,isCheckedSalsas4,isCheckedSalsas5,isCheckedSalsas6,isCheckedVegetales1,isCheckedVegetales2,isCheckedVegetales3,isCheckedVegetales4,isCheckedVegetales5,isCheckedVegetales6,isCheckedVegetales7,isCheckedVegetales8,handleCheckboxChange1,handleCheckboxChange2,handleCheckboxChange3,handleCheckboxChange4,handleCheckboxChange5,handleCheckboxChange6,handleCheckboxChange7,handleCheckboxChange8,handleCheckboxChange9,handleCheckboxChange10,handleCheckboxChangeAderezos1,handleCheckboxChangeAderezos2,handleCheckboxChangeAderezos3,handleCheckboxChangeAderezos4,handleCheckboxChangeAderezos5,handleCheckboxChangeAderezos6,handleCheckboxChangeQueso1,handleCheckboxChangeQueso2,handleCheckboxChangeQueso3,handleCheckboxChangeQueso4,handleCheckboxChangeQueso5,handleCheckboxChangeQueso6,handleCheckboxChangeQueso7,handleCheckboxChangeQueso8,handleCheckboxChangeSalsas1,handleCheckboxChangeSalsas2,handleCheckboxChangeSalsas3,handleCheckboxChangeSalsas4,handleCheckboxChangeSalsas5,handleCheckboxChangeSalsas6,handleCheckboxChangeVegetales1,handleCheckboxChangeVegetales2,handleCheckboxChangeVegetales3,handleCheckboxChangeVegetales4,handleCheckboxChangeVegetales5,handleCheckboxChangeVegetales6,handleCheckboxChangeVegetales7,handleCheckboxChangeVegetales8,order,setOrder,ingredients,setIngredients,isCheckedBebidas1,isCheckedBebidas2,isCheckedBebidas3,isCheckedBebidas4,isCheckedBebidas5,isCheckedBebidas6,handleCheckboxChangeBebidas1,handleCheckboxChangeBebidas2,handleCheckboxChangeBebidas3,handleCheckboxChangeBebidas4,handleCheckboxChangeBebidas5,handleCheckboxChangeBebidas6,}}>
         {children}
     </contextPage.Provider>
   )

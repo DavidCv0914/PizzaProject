@@ -66,7 +66,14 @@ export default function ContextProvider({children}){
     ingredient9:"",
     size:"",
     cost:0,
-    address:""
+    address:"",
+    nameSoda:"",
+    typeSoda:"",
+    sizeSoda:"",
+    costSoda:0,
+    nameAdditional:"",
+    typeAdditional:"",
+    costAdditional:0
   });
   
 

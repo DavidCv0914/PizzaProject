@@ -316,6 +316,7 @@ form input::selection{
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
     margin: 30px;
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
 }
 .order-form form input,progress{

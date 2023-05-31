@@ -4,12 +4,15 @@ import { contextPage } from "../context/context";
 export const Order = () => {
   let context = useContext(contextPage);
 
+  const [validateForm7, setValidateForm7] = useState(false);
   const [validateForm6, setValidateForm6] = useState(false);
   const [validateForm5, setValidateForm5] = useState(false);
   const [validateForm4, setValidateForm4] = useState(false);
   const [validateForm3, setValidateForm3] = useState(false);
   const [validateForm2, setValidateForm2] = useState(false);
   const [validateForm1, setValidateForm1] = useState(false);
+  const [size,setSize] =useState("");
+  const [cost,setCost] = useState(0);
 
   const handleSubmitMeats = (e) => {
     e.preventDefault();
@@ -182,20 +185,47 @@ export const Order = () => {
     }
 
     if (validate.length > 1) {
-      setValidateForm6(false);
+      setValidateForm7(false);
       alert("No puede agregar mas de una bebida");
     } else if (validate.length == 0) {
-      setValidateForm6(false);
+      setValidateForm7(false);
       alert("tiene que poner al menos una bebida");
     } else {
       alert("validado");
-      setValidateForm6(true);
+      setValidateForm7(true);
+    }
+  }
+
+  const handleOnchange = (e) => {
+    setSize(e.target.value);
+
+  }
+
+  const handleSubmitSize = (e) =>{
+    e.preventDefault();
+    if (size == "pequeña") {
+      setValidateForm6(true)
+      setCost(12000);
+    }else if(size == "mediana"){
+      setValidateForm6(true)
+      setCost(16000);
+    }else if(size == "grande"){
+      setValidateForm6(true)
+      setCost(24000);
+    }else if(size == "extragrande"){
+      setValidateForm6(true)
+      setCost(32000);
+    }else{
+      setValidateForm6(false)
+      alert("Eliga una opcion")
     }
   }
 
   const confirmPizza = () => {
-    if (validateForm1 && validateForm2 && validateForm3 && validateForm4 && validateForm5) {
+    if (validateForm1 && validateForm2 && validateForm3 && validateForm4 && validateForm5 && validateForm6 && validateForm7) {
       let ingredients = [];
+      let soda = [];
+    
       if (context.isChecked1) {
         ingredients.push("Pepperoni");
       }
@@ -310,6 +340,25 @@ export const Order = () => {
       if (context.isCheckedAderezos6) {
         ingredients.push("Ajo picado");
       }
+      if (context.isCheckedBebidas1) {
+        soda.push("Gaseosa")
+      }
+      if (context.isCheckedBebidas2) {
+        soda.push("Té")
+      }
+      if (context.isCheckedBebidas3) {
+        soda.push("Agua")
+      }
+      if (context.isCheckedBebidas4) {
+        soda.push("Cerveza")
+      }
+      if (context.isCheckedBebidas5) {
+        soda.push("Jugo natural")
+      }
+      if (context.isCheckedBebidas6) {
+        soda.push("Jugo artificial")
+      }
+
       if (ingredients.length == 9) {
         context.setOrder({...context.order,
           ingredient1:ingredients[0],
@@ -320,7 +369,10 @@ export const Order = () => {
           ingredient6:ingredients[5],
           ingredient7:ingredients[6],
           ingredient8:ingredients[7],
-          ingredient9:ingredients[8]
+          ingredient9:ingredients[8],
+          size:size,
+          cost:cost,
+          typeSoda:soda[0]
         });
       }
       if (ingredients.length == 8) {
@@ -332,7 +384,10 @@ export const Order = () => {
           ingredient5:ingredients[4],
           ingredient6:ingredients[5],
           ingredient7:ingredients[6],
-          ingredient8:ingredients[7]
+          ingredient8:ingredients[7],
+          size:size,
+          cost:cost,
+          typeSoda:soda[0]
         });
       }
       if (ingredients.length == 7) {
@@ -343,7 +398,10 @@ export const Order = () => {
           ingredient4:ingredients[3],
           ingredient5:ingredients[4],
           ingredient6:ingredients[5],
-          ingredient7:ingredients[6]
+          ingredient7:ingredients[6],
+          size:size,
+          cost:cost,
+          typeSoda:soda[0]
         });
       }
       if (ingredients.length == 6) {
@@ -353,7 +411,10 @@ export const Order = () => {
           ingredient3:ingredients[2],
           ingredient4:ingredients[3],
           ingredient5:ingredients[4],
-          ingredient6:ingredients[5]
+          ingredient6:ingredients[5],
+          size:size,
+          cost:cost,
+          typeSoda:soda[0]
         });
       }
       if (ingredients.length == 5) {
@@ -362,7 +423,10 @@ export const Order = () => {
           ingredient2:ingredients[1],
           ingredient3:ingredients[2],
           ingredient4:ingredients[3],
-          ingredient5:ingredients[4]
+          ingredient5:ingredients[4],
+          size:size,
+          cost:cost,
+          typeSoda:soda[0]
         });
       }
     }else{
@@ -371,7 +435,7 @@ export const Order = () => {
   };
 
   return (
-  
+     
       <section className="order-form">
         <form onSubmit={handleSubmitMeats}>
 
@@ -644,7 +708,16 @@ export const Order = () => {
           />
           <button>Checar</button>
         </form>
-        <button onClick={confirmPizza}>Confirmar Pizza</button>
+         <form onSubmit={handleSubmitSize}>
+        <select name="tamaño" onChange={handleOnchange} required>
+                <option selected disabled>Elija un tamaño</option>
+                <option value="pequeña">Pequeña</option>
+                <option value="mediana">Mediana</option>
+                <option value="grande">Grande</option>
+                <option value="extragrande">Extragrande</option>
+        </select>
+        <button>checar</button>
+        </form>
         <form onSubmit={handleSubmitTypeBebida}>
           <h3>Bebida</h3>
           <input type="checkbox" checked={context.isCheckedBebidas1} onChange={context.handleCheckboxChangeBebidas1} />
@@ -666,7 +739,9 @@ export const Order = () => {
           <label>Jugos artificiales</label>
           <button>Checar</button>
         </form>
-        
+
+       
+        <button onClick={confirmPizza}>Confirmar</button>
       </section>  
   );
 };

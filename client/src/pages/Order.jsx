@@ -11,8 +11,90 @@ export const Order = () => {
   const [validateForm3, setValidateForm3] = useState(false);
   const [validateForm2, setValidateForm2] = useState(false);
   const [validateForm1, setValidateForm1] = useState(false);
+  const [typeSoda,setTypeSoda] = useState("")
   const [size,setSize] =useState("");
   const [cost,setCost] = useState(0);
+  
+  const nameSodaForm = () =>{
+    if (typeSoda == "gaseosa") {
+      return (
+      
+      <select onChange={handleOnchange} required>
+              <option selected disabled>Elija la gaseosa</option>
+              <option value="pequeña">Pequeña</option>
+              <option value="mediana">Mediana</option>
+              <option value="grande">Grande</option>
+              <option value="extragrande">Extragrande</option>
+      </select>
+     
+      )
+    }else if(typeSoda == "te"){
+      return(
+      
+        <select onChange={handleOnchange} required>
+                <option selected disabled>Elija el té</option>
+                <option value="pequeña">Pequeña</option>
+                <option value="mediana">Mediana</option>
+                <option value="grande">Grande</option>
+                <option value="extragrande">Extragrande</option>
+        </select>
+     
+      )
+    }
+    else if(typeSoda == "agua"){
+      return(
+        
+          <select onChange={handleOnchange} required>
+                <option selected disabled>Elija el agua</option>
+                <option value="pequeña">Pequeña</option>
+                <option value="mediana">Mediana</option>
+                <option value="grande">Grande</option>
+                <option value="extragrande">Extragrande</option>
+          </select>
+       
+      )
+    }else if(typeSoda == "cerveza"){
+      return(
+        
+          <select onChange={handleOnchange} required>
+                <option selected disabled>Elija el cerveza</option>
+                <option value="pequeña">Pequeña</option>
+                <option value="mediana">Mediana</option>
+                <option value="grande">Grande</option>
+                <option value="extragrande">Extragrande</option>
+          </select>
+       
+      )
+    }
+    else if (typeSoda == "jugo natural") {
+      return(
+        
+          <select onChange={handleOnchange} required>
+                <option selected disabled>Elija el jugo natural</option>
+                <option value="pequeña">Pequeña</option>
+                <option value="mediana">Mediana</option>
+                <option value="grande">Grande</option>
+                <option value="extragrande">Extragrande</option>
+          </select>
+       
+      )
+    }
+    else if(typeSoda == "jugo artificial"){
+      return(
+        
+          <select onChange={handleOnchange} required>
+                <option selected disabled>Elija el jugo artificial</option>
+                <option value="pequeña">Pequeña</option>
+                <option value="mediana">Mediana</option>
+                <option value="grande">Grande</option>
+                <option value="extragrande">Extragrande</option>
+          </select>
+       
+      )
+    }else{
+      return null
+    }
+  }
 
   const handleSubmitMeats = (e) => {
     e.preventDefault();
@@ -167,29 +249,12 @@ export const Order = () => {
     }
   };
 
-  const handleSubmitTypeBebida = (e) => {
+  const handleSubmitBebida = (e) => {
     e.preventDefault()
-    let arayCheked = [
-      context.isCheckedBebidas1,
-      context.isCheckedBebidas2,
-      context.isCheckedBebidas3,
-      context.isCheckedBebidas4,
-      context.isCheckedBebidas5,
-      context.isCheckedBebidas6,
-    ];
-    let validate = [];
-    for (let i = 0; i < 10; i++) {
-      if (arayCheked[i]) {
-        validate.push(arayCheked[1]);
-      }
-    }
 
-    if (validate.length > 1) {
-      setValidateForm7(false);
-      alert("No puede agregar mas de una bebida");
-    } else if (validate.length == 0) {
-      setValidateForm7(false);
-      alert("tiene que poner al menos una bebida");
+    if (typeSoda == "" ) {
+      alert("tiene que poner una bebida");
+      setValidateForm7(false)
     } else {
       alert("validado");
       setValidateForm7(true);
@@ -340,24 +405,6 @@ export const Order = () => {
       if (context.isCheckedAderezos6) {
         ingredients.push("Ajo picado");
       }
-      if (context.isCheckedBebidas1) {
-        soda.push("Gaseosa")
-      }
-      if (context.isCheckedBebidas2) {
-        soda.push("Té")
-      }
-      if (context.isCheckedBebidas3) {
-        soda.push("Agua")
-      }
-      if (context.isCheckedBebidas4) {
-        soda.push("Cerveza")
-      }
-      if (context.isCheckedBebidas5) {
-        soda.push("Jugo natural")
-      }
-      if (context.isCheckedBebidas6) {
-        soda.push("Jugo artificial")
-      }
 
       if (ingredients.length == 9) {
         context.setOrder({...context.order,
@@ -372,7 +419,7 @@ export const Order = () => {
           ingredient9:ingredients[8],
           size:size,
           cost:cost,
-          typeSoda:soda[0]
+          typeSoda:typeSoda
         });
       }
       if (ingredients.length == 8) {
@@ -387,7 +434,7 @@ export const Order = () => {
           ingredient8:ingredients[7],
           size:size,
           cost:cost,
-          typeSoda:soda[0]
+          typeSoda:typeSoda
         });
       }
       if (ingredients.length == 7) {
@@ -401,7 +448,7 @@ export const Order = () => {
           ingredient7:ingredients[6],
           size:size,
           cost:cost,
-          typeSoda:soda[0]
+          typeSoda:typeSoda
         });
       }
       if (ingredients.length == 6) {
@@ -414,7 +461,7 @@ export const Order = () => {
           ingredient6:ingredients[5],
           size:size,
           cost:cost,
-          typeSoda:soda[0]
+          typeSoda:typeSoda
         });
       }
       if (ingredients.length == 5) {
@@ -426,14 +473,14 @@ export const Order = () => {
           ingredient5:ingredients[4],
           size:size,
           cost:cost,
-          typeSoda:soda[0]
+          typeSoda:typeSoda
         });
       }
     }else{
-      alert("Valide ingredientes")
+      alert("Valide todo")
     }
   };
-
+console.log(typeSoda);
   return (
      
       <section className="order-form">
@@ -718,28 +765,31 @@ export const Order = () => {
         </select>
         <button>checar</button>
         </form>
-        <form onSubmit={handleSubmitTypeBebida}>
+        <form onSubmit={handleSubmitBebida}>
           <h3>Bebida</h3>
-          <input type="checkbox" checked={context.isCheckedBebidas1} onChange={context.handleCheckboxChangeBebidas1} />
+          
+          <input type="radio" value="gaseosa" checked={typeSoda == "gaseosa"} onChange={(e) => setTypeSoda(e.target.value)} />
           <label>Gaseosa</label>
 
-          <input type="checkbox" checked={context.isCheckedBebidas2} onChange={context.handleCheckboxChangeBebidas2} />
+          <input type="radio" value="te" checked={typeSoda == "te"} onChange={(e) => setTypeSoda(e.target.value)} />
           <label>Té</label>
 
-          <input type="checkbox" checked={context.isCheckedBebidas3} onChange={context.handleCheckboxChangeBebidas3} />
+          <input type="radio" value="agua" checked={typeSoda == "agua"} onChange={(e) => setTypeSoda(e.target.value)} />
           <label>Agua</label>
 
-          <input type="checkbox" checked={context.isCheckedBebidas4} onChange={context.handleCheckboxChangeBebidas4} />
+          <input type="radio" value="cerveza" checked={typeSoda == "cerveza"} onChange={(e) => setTypeSoda(e.target.value)} />
           <label>Cerveza</label>
 
-          <input type="checkbox" checked={context.isCheckedBebidas5} onChange={context.handleCheckboxChangeBebidas5} />
+          <input type="radio" value="jugo natural" checked={typeSoda == "jugo natural"} onChange={(e) => setTypeSoda(e.target.value)} />
           <label>Jugo natural</label>
 
-          <input type="checkbox" checked={context.isCheckedBebidas6} onChange={context.handleCheckboxChangeBebidas6} />
+          <input type="radio" value="jugo artificial" checked={typeSoda == "jugo artificial"} onChange={(e) => setTypeSoda(e.target.value)} />
           <label>Jugos artificiales</label>
+           {nameSodaForm()}
           <button>Checar</button>
         </form>
-
+        
+       
        
         <button onClick={confirmPizza}>Confirmar</button>
       </section>  

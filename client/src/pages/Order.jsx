@@ -11,32 +11,51 @@ export const Order = () => {
   const [validateForm3, setValidateForm3] = useState(false);
   const [validateForm2, setValidateForm2] = useState(false);
   const [validateForm1, setValidateForm1] = useState(false);
+  const [nameSoda,setNameSoda] = useState("")
   const [typeSoda,setTypeSoda] = useState("")
+  const [sizeSoda,setSizeSoda] = useState("")
+  const [costSoda,setCostSoda] = useState(0)
   const [size,setSize] =useState("");
   const [cost,setCost] = useState(0);
   
+  const handleOnchangeNameSoda = (e) =>{
+    setNameSoda(e.target.value)
+  }
+
+  const handleOnchangeSizeSoda = (e) =>{
+    setSizeSoda(e.target.value)
+  }
+        
   const nameSodaForm = () =>{
     if (typeSoda == "gaseosa") {
       return (
       
-      <select onChange={handleOnchange} required>
+      <select onChange={handleOnchangeNameSoda} required>
               <option selected disabled>Elija la gaseosa</option>
-              <option value="pequeña">Pequeña</option>
-              <option value="mediana">Mediana</option>
-              <option value="grande">Grande</option>
-              <option value="extragrande">Extragrande</option>
+              <option value="pepsi">Pepsi</option>
+              <option value="coca-cola">Coca-cola</option>
+              <option value="sprite">Sprite</option>
+              <option value="quatro">Quatro</option>
+              <option value="7up">7up</option>
+              <option value="postobon manzana">Postobon-Manzana</option>
+              <option value="postobon colombiana">Postobon-Colombiana</option>
+              <option value="canada dry">Canada Dry</option>
       </select>
      
       )
     }else if(typeSoda == "te"){
       return(
       
-        <select onChange={handleOnchange} required>
+        <select onChange={handleOnchangeNameSoda} required>
                 <option selected disabled>Elija el té</option>
-                <option value="pequeña">Pequeña</option>
-                <option value="mediana">Mediana</option>
-                <option value="grande">Grande</option>
-                <option value="extragrande">Extragrande</option>
+                <option value="mr tea de limon">Mr tea de limón</option>
+                <option value="mr tea de durazno">Mr tea de durazno</option>
+                <option value="hatsu">Hatsu</option>
+                <option value="fuzetea de durazno">Fuzetea de durazno</option>
+                <option value="fuzetea de limon">Fuzetea de limón</option>
+                <option value="fuzetea de frutos rojos">Fuzetea de frutos rojos</option>
+                <option value="nestea de limon">Nestea de limón</option>
+                <option value="nestea de durazno">Nestea de durazno</option>
         </select>
      
       )
@@ -44,37 +63,47 @@ export const Order = () => {
     else if(typeSoda == "agua"){
       return(
         
-          <select onChange={handleOnchange} required>
+          <select onChange={handleOnchangeNameSoda} required>
                 <option selected disabled>Elija el agua</option>
-                <option value="pequeña">Pequeña</option>
-                <option value="mediana">Mediana</option>
-                <option value="grande">Grande</option>
-                <option value="extragrande">Extragrande</option>
+                <option value="cristal">Cristal</option>
+                <option value="cristal con gas">Cristal con gas</option>
+                <option value="brisa">Brisa</option>
+                <option value="cielo">Cielo</option>
+                <option value="vital">Vital</option>
+                <option value="vital con gas">Vital con gas</option>
           </select>
        
       )
     }else if(typeSoda == "cerveza"){
       return(
         
-          <select onChange={handleOnchange} required>
-                <option selected disabled>Elija el cerveza</option>
-                <option value="pequeña">Pequeña</option>
-                <option value="mediana">Mediana</option>
-                <option value="grande">Grande</option>
-                <option value="extragrande">Extragrande</option>
+          <select onChange={handleOnchangeNameSoda} required>
+                <option selected disabled>Elija la cerveza</option>
+                <option value="club colombia">Club-Colombia</option>
+                <option value="corona">Corona</option>
+                <option value="poker">Poker</option>
+                <option value="aguila">Aguila</option>
+                <option value="aguila light">Aguila-light</option>
+                <option value="andina">Andina</option>
+                <option value="heineken">Heineken</option>
+                <option value="costeña">Costeña</option>
           </select>
        
       )
     }
-    else if (typeSoda == "jugo natural") {
+    else if (typeSoda == "jugo natural"){
       return(
         
-          <select onChange={handleOnchange} required>
+          <select onChange={handleOnchangeNameSoda} required>
                 <option selected disabled>Elija el jugo natural</option>
-                <option value="pequeña">Pequeña</option>
-                <option value="mediana">Mediana</option>
-                <option value="grande">Grande</option>
-                <option value="extragrande">Extragrande</option>
+                <option value="Mora">Mora</option>
+                <option value="mango">Mango</option>
+                <option value="lulo">Lulo</option>
+                <option value="guayaba">Guayaba</option>
+                <option value="guanabana">Guanabana</option>
+                <option value="piña">Piña</option>
+                <option value="Maracuyá">Maracuya</option>
+                <option value="naranja">Naranja</option>
           </select>
        
       )
@@ -82,17 +111,26 @@ export const Order = () => {
     else if(typeSoda == "jugo artificial"){
       return(
         
-          <select onChange={handleOnchange} required>
+          <select onChange={handleOnchangeNameSoda} required>
                 <option selected disabled>Elija el jugo artificial</option>
-                <option value="pequeña">Pequeña</option>
-                <option value="mediana">Mediana</option>
-                <option value="grande">Grande</option>
-                <option value="extragrande">Extragrande</option>
+                <option value="hit mango">Hit de mango</option>
+                <option value="hit mora">Hit de mora</option>
+                <option value="hit frutos tropicales">Hit de frutos tropicales</option>
+                <option value="hit naranja piña">Hit de naranja piña</option>
+                <option value="hit lulo">Hit de lulo</option>
+                <option value="cifrut de mora">Cifrut de mora</option>
+                <option value="cifrut de granadilla">Cifrut de granadilla</option>
+                <option value="cifrut de naranja">Cifrut de naranja</option>
+                <option value="nectar">Nectar</option>
+                <option value="tutti frutti">Tutti frutti</option>
+                <option value="del valle">Del valle</option>
           </select>
        
-      )
+      ) 
     }else{
-      return null
+      return (
+        <select></select>
+      )
     }
   }
 
@@ -248,16 +286,30 @@ export const Order = () => {
       setValidateForm5(true);
     }
   };
-
+console.log(sizeSoda);
   const handleSubmitBebida = (e) => {
     e.preventDefault()
 
-    if (typeSoda == "" ) {
-      alert("tiene que poner una bebida");
+    if (typeSoda == "" || nameSoda == "" || sizeSoda == "") {
+      alert("tiene que completartodos los campos");
       setValidateForm7(false)
     } else {
       alert("validado");
       setValidateForm7(true);
+      
+      if (sizeSoda =="200ml") {
+        setCostSoda(1500)
+      }else if(sizeSoda == "250ml"){
+        setCostSoda(2000)
+      }else if(sizeSoda == "350ml"){
+        setCostSoda(2500)
+      }else if(sizeSoda == "500ml"){
+        setCostSoda(3000)
+      }else if(sizeSoda == "1 litro"){
+        setCostSoda(4000)
+      }else if(sizeSoda == "2 litros"){
+        setCostSoda(3000)
+      }
     }
   }
 
@@ -419,7 +471,10 @@ export const Order = () => {
           ingredient9:ingredients[8],
           size:size,
           cost:cost,
-          typeSoda:typeSoda
+          nameSoda:nameSoda,
+          typeSoda:typeSoda,
+          sizeSoda:sizeSoda,
+          costSoda:costSoda
         });
       }
       if (ingredients.length == 8) {
@@ -434,7 +489,10 @@ export const Order = () => {
           ingredient8:ingredients[7],
           size:size,
           cost:cost,
-          typeSoda:typeSoda
+          nameSoda:nameSoda,
+          typeSoda:typeSoda,
+          sizeSoda:sizeSoda,
+          costSoda:costSoda
         });
       }
       if (ingredients.length == 7) {
@@ -448,7 +506,10 @@ export const Order = () => {
           ingredient7:ingredients[6],
           size:size,
           cost:cost,
-          typeSoda:typeSoda
+          nameSoda:nameSoda,
+          typeSoda:typeSoda,
+          sizeSoda:sizeSoda,
+          costSoda:costSoda
         });
       }
       if (ingredients.length == 6) {
@@ -461,7 +522,10 @@ export const Order = () => {
           ingredient6:ingredients[5],
           size:size,
           cost:cost,
-          typeSoda:typeSoda
+          nameSoda:nameSoda,
+          typeSoda:typeSoda,
+          sizeSoda:sizeSoda,
+          costSoda:costSoda
         });
       }
       if (ingredients.length == 5) {
@@ -473,14 +537,17 @@ export const Order = () => {
           ingredient5:ingredients[4],
           size:size,
           cost:cost,
-          typeSoda:typeSoda
+          nameSoda:nameSoda,
+          typeSoda:typeSoda,
+          sizeSoda:sizeSoda,
+          costSoda:costSoda
         });
       }
     }else{
       alert("Valide todo")
     }
   };
-console.log(typeSoda);
+console.log(costSoda);
   return (
      
       <section className="order-form">
@@ -786,6 +853,15 @@ console.log(typeSoda);
           <input type="radio" value="jugo artificial" checked={typeSoda == "jugo artificial"} onChange={(e) => setTypeSoda(e.target.value)} />
           <label>Jugos artificiales</label>
            {nameSodaForm()}
+           <select name="tamaño" onChange={handleOnchangeSizeSoda} required>
+                <option selected disabled>Elija tamaño de la bebida</option>
+                <option value="200ml">200ml</option>
+                <option value="250ml">250ml</option>
+                <option value="350ml">350ml</option>
+                <option value="500ml">500ml</option>
+                <option value="1 litro">1 Litro</option>
+                <option value="2 litros">2 Litros</option>
+        </select>
           <button>Checar</button>
         </form>
         

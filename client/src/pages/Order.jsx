@@ -4,6 +4,7 @@ import { contextPage } from "../context/context";
 export const Order = () => {
   let context = useContext(contextPage);
 
+  const [validateForm8, setValidateForm8] = useState(false);
   const [validateForm7, setValidateForm7] = useState(false);
   const [validateForm6, setValidateForm6] = useState(false);
   const [validateForm5, setValidateForm5] = useState(false);
@@ -14,6 +15,8 @@ export const Order = () => {
   const [nameSoda,setNameSoda] = useState("")
   const [typeSoda,setTypeSoda] = useState("")
   const [sizeSoda,setSizeSoda] = useState("")
+  const [nameAdditional,setNameAdditional] = useState("")
+  const [costAdditional,setCostAdditional] = useState(0)
   const [costSoda,setCostSoda] = useState(0)
   const [size,setSize] =useState("");
   const [cost,setCost] = useState(0);
@@ -131,6 +134,17 @@ export const Order = () => {
       return (
         <select></select>
       )
+    }
+  }
+
+  const handleSubmitAdditional = (e) =>{
+    e.preventDefault();
+    if (nameAdditional == "") {
+      setValidateForm8(false)
+      alert("Elija un adicional")
+    }else{
+      setValidateForm8(true);
+      
     }
   }
 
@@ -824,7 +838,7 @@ console.log(costSoda);
         </form>
          <form onSubmit={handleSubmitSize}>
         <select name="tamaño" onChange={handleOnchange} required>
-                <option selected disabled>Elija un tamaño</option>
+                <option selected disabled>Elija un tamaño de pizza</option>
                 <option value="pequeña">Pequeña</option>
                 <option value="mediana">Mediana</option>
                 <option value="grande">Grande</option>
@@ -865,7 +879,39 @@ console.log(costSoda);
           <button>Checar</button>
         </form>
         
-       
+       <form onSubmit={handleSubmitAdditional}>
+       <h3>Bebida</h3>
+          
+          <input type="radio" value="dona" checked={nameAdditional == "dona"} onChange={(e) => setNameAdditional(e.target.value)} />
+          <label>Dona</label>
+
+          <input type="radio" value="dona rellena" checked={nameAdditional == "dona rellena"} onChange={(e) => setNameAdditional(e.target.value)} />
+          <label>Dona rellena</label>
+
+          <input type="radio" value="banderillos" checked={nameAdditional == "banderillos"} onChange={(e) => setNameAdditional(e.target.value)} />
+          <label>Banderillos</label>
+
+          <input type="radio" value="pan" checked={nameAdditional == "pan"} onChange={(e) => setNameAdditional(e.target.value)} />
+          <label>Pan</label>
+
+          <input type="radio" value="galletas" checked={nameAdditional == "galletas"} onChange={(e) => setNameAdditional(e.target.value)} />
+          <label>Galletas</label>
+
+          <input type="radio" value="dedo de queso" checked={nameAdditional == "dedo de queso"} onChange={(e) => setNameAdditional(e.target.value)} />
+          <label>Dedo de queso</label>
+
+          <input type="radio" value="bizcocho" checked={nameAdditional == "bizcocho"} onChange={(e) => setNameAdditional(e.target.value)} />
+          <label>Bizcocho</label>
+
+          <input type="radio" value="cupcake" checked={nameAdditional == "cupcake"} onChange={(e) => setNameAdditional(e.target.value)} />
+          <label>Cupcake</label>
+
+          <input type="radio" value="pastel" checked={nameAdditional == "pastel"} onChange={(e) => setNameAdditional(e.target.value)} />
+          <label>Pastel</label>
+        
+        <button>checar</button>
+
+       </form>
        
         <button onClick={confirmPizza}>Confirmar</button>
       </section>  

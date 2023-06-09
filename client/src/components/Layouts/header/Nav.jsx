@@ -51,6 +51,11 @@ export const Nav = () => {
         navigate("/LogIn")
     }
 
+    const profile = () =>{
+        navigate("/profile")
+    }
+
+
   return (
     <nav className='nav active' >                                 
                     <div className="logo">
@@ -63,11 +68,11 @@ export const Nav = () => {
                     </ul>
                     {verifyInfo ? 
                     <div className="usuario">
-                        <Link to="/" className="btn">
+                        <Link to="/profile" className="btn">
                         {infoUser.name}            
                         </Link> 
                         <div className="usuario-btn">
-                        <img src={infoUser.iconUser} alt="" /> 
+                        <img src={infoUser.iconUser} alt="" onClick={profile} /> 
                         </div>
                     </div>  :
                     <div className="usuario">

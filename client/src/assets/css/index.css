@@ -297,7 +297,8 @@ header{
 }
 /*--------------- menu card pizza--------------*/
 .Cmenu-pizza,
-.Cmenu-gaseosa{
+.Cmenu-gaseosa,
+.Cmenu-adicional{
     display: grid;
     gap: 50px;
     grid-template-columns: repeat(3, 1fr);

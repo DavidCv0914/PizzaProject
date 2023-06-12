@@ -375,6 +375,7 @@ header{
 .Cmenu-lateral button:hover{
     background: var(--verde);
     color: var(--blanco);
+    cursor: pointer;
 }
 .Cmenu-lateral__personalizada{
     display: flex;

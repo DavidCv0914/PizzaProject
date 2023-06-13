@@ -68,6 +68,7 @@ export const Nav = () => {
                     </ul>
                     {verifyInfo ? 
                     <div className="usuario">
+                        <i class='bx bx-cart'></i>
                         <Link to="/profile" className="btn">
                         {infoUser.name}            
                         </Link> 

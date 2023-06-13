@@ -4,7 +4,8 @@ import { MenuGaseosa } from '../menu-gaseosa/MenuGaseosa'
 import { SelectNav } from '../selectType/SelectNav'
 import { MenuAdicional } from '../menu-adicional/MenuAdicional'
 import { contextPage } from "../../../../context/context";
-import { Order } from "../../../../pages/Order";
+// import { Order } from "../../../../pages/Order";
+import { MenuPizzaPersonal } from '../menu-pizza-personal/MenuPizzaPersonal'
 
 export const MenuMenu = () => {
 
@@ -14,7 +15,7 @@ export const MenuMenu = () => {
     if (context.typePizzaMenu) {
       return <MenuPizza/>
     }else{
-      return <Order/>
+      return <MenuPizzaPersonal/>
     }
   }
 

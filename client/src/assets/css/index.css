@@ -90,10 +90,16 @@ header{
     gap: 10px;
     width: max-content;
 }
+.usuario i{
+    color: var(--blanco);
+    font-size: 30px;
+    cursor: pointer;
+}
 .nav .usuario-btn img{
     width: 60px;
     height: 60px;
     border-radius: 50%;
+    cursor: pointer;
 }
 .nav .btn{
     text-decoration: none;
@@ -297,6 +303,7 @@ header{
 }
 /*--------------- menu card pizza--------------*/
 .Cmenu-pizza,
+.Cmenu-personal,
 .Cmenu-gaseosa,
 .Cmenu-adicional{
     display: grid;
@@ -392,7 +399,13 @@ header{
 .Cmenu-lateral div:nth-child(2){
     width: 100%;
 }
-
+/*--------------Profile------------------------*/
+.banner{
+    background:linear-gradient(#1f27297e, #0b13154c), url(../img/banner.jpg) no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 50vh;
+}
 /*--------------Formularios---------------------*/
 .form-contain{
     background: url(../img/form.jpg) no-repeat;
@@ -433,6 +446,11 @@ form input:focus{
 form input::selection{
     color: var(--color-primer);
     background: none;
+}
+form input[type="number"]::-webkit-outer-spin-button,
+form input[type="number"]::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
 }
 .form-contain-f form{
     display: flex;

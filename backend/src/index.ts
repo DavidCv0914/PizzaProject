@@ -3,6 +3,7 @@ import cors from "cors";
 import userRouting from "./routes/user.routing";
 import userManagement from "./routes/userManagement.routing";
 import pizzaOrdersRouting from "./routes/pizzaOrders.routing";
+import menuRouting from "./routes/menu.routing"; 
 
 class Server{
 
@@ -23,6 +24,7 @@ class Server{
         this.app.use('/auths',userRouting);
         this.app.use(userManagement);
         this.app.use(pizzaOrdersRouting);
+        this.app.use(menuRouting);
     }
     
     start():void{

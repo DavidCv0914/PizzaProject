@@ -17,17 +17,37 @@ export const MenuLateral = () => {
     context.setViewMenu("adicional")
   }
 
+  const setViewMenuCarne = () =>{
+    context.setIngredientMenu("carnes")
+  }
+
+  const setViewMenuQueso = () =>{
+    context.setIngredientMenu("quesos")
+  }
+
+  const setViewMenuSalsa= () =>{
+    context.setIngredientMenu("salsas")
+  }
+
+  const setViewMenuVegetales = () =>{
+    context.setIngredientMenu("vegetales")
+  }
+
+  const setViewMenuAderezos = () =>{
+    context.setIngredientMenu("aderezos")
+  }
+
   return (
     <div className="Cmenu-lateral">
       <div>
         <button onClick={setViewMenuPizza}>Pizza</button>
             {context.typePizzaMenu ? null :
             <div className="Cmenu-lateral__personalizada">
-                <button>Carnes</button>
-                <button>Quesos</button>
-                <button>Salsas</button>
-                <button>Vegetales</button>
-                <button>Aderezos</button>
+                <button onClick={setViewMenuCarne}>Carnes</button>
+                <button onClick={setViewMenuQueso}>Quesos</button>
+                <button onClick={setViewMenuSalsa}>Salsas</button>
+                <button onClick={setViewMenuVegetales}>Vegetales</button>
+                <button onClick={setViewMenuAderezos}>Aderezos</button>
             </div>}
         <button onClick={setViewMenuBebida}>Bebidas</button>
         <button onClick={setViewMenuAdicional}>Adicionales</button>

@@ -1,20 +1,54 @@
-import React from 'react'
+import React,{ useState,useEffect,useContext } from 'react'
+import { contextPage } from "../../../../context/context";
+import { getMenu,getMenuSize } from "../../../../api/api";
 
 export const MenuPizza = () => {
+
+  let context = useContext(contextPage);
+
+  const [listPizzas,setListPizzas] = useState([]);
+  useEffect(()=>{
+    const loadMenu = async() =>{
+      if (context.typePizzaMenu) {
+        if (context.sizeSelect == "") {
+          const response = await getMenu();
+          setListPizzas(response.data)
+        }else{
+          const response = await getMenuSize(context.sizeSelect);
+          setListPizzas(response.data)
+        }
+      }else{
+        
+      }
+    }
+    loadMenu()
+  },[context.sizeSelect]);
+console.log(listPizzas);
   return (
-        <div className="Cmenu-pizza">
-          <section className="Cmenu-card">
-            <div className="Cmenu-card__img">
-            <img src="https://res.cloudinary.com/dtit8udfs/image/upload/v1686233274/pizza_5_dtqdvn.png" alt="" />
-            </div>
-            <div className="Cmenu-card__info">
-              <h2>Hawaiana</h2>
-              <p>$ 32.000</p>
-              <p>Salsa de Tomate, Queso Mozzarella, Rodajas de Jamón y Trozos de Piña</p>
-              <button>Agregar</button>
-            </div>
-          </section>
-          <section className="Cmenu-card">
+
+       
+       <div className="Cmenu-pizza">
+       {listPizzas.length > 0 ? 
+       listPizzas.map((pizzas)=>(
+        <section className="Cmenu-card" key={pizzas.id_pizza}>
+        <div className="Cmenu-card__img">
+        <img src={pizzas.img} alt="" />
+        </div>
+        <div className="Cmenu-card__info">
+          <h2>{pizzas.sabor}</h2>
+          <p>$ {pizzas.precio}</p>
+          <p>tamaño: {pizzas.tamaño}</p>
+          <p>{pizzas.description}</p>
+          <button>Agregar</button>
+        </div>
+       </section>
+          
+       )) : null}
+      
+          
+          
+        
+          {/* <section className="Cmenu-card">
             <div className="Cmenu-card__img">
             <img src="https://res.cloudinary.com/dtit8udfs/image/upload/v1686233256/pizzaaa_o4uyjl.png" alt="" />
             </div>
@@ -123,7 +157,8 @@ export const MenuPizza = () => {
               <p>Salsa de Tomate, Queso Mozzarella, Carne Molida, Jalapeños, Cebolla, Pimientos, Tomate y Maíz Dulce</p>
               <button>Agregar</button>
             </div>
-          </section>
-        </div> 
+          </section> 
+        </div> */}
+         </div>
   )
 }

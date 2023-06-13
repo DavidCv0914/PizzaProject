@@ -16,3 +16,11 @@ export const dataUser = async() =>
 
 export const generateOrder = async(values) =>
     await axios.get(`${url}/generateOrder`,values, {headers:{token:token}});
+
+// Menu 
+
+export const getMenu = async() =>
+    await axios.get(`${url}/getPizzas`);
+
+export const getMenuSize = async(size) =>
+    await axios.get(`${url}/getPizzas/${size}`);

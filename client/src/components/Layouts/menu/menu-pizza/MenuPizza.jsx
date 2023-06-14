@@ -23,7 +23,7 @@ export const MenuPizza = () => {
     }
     loadMenu()
   },[context.sizeSelect]);
-console.log(listPizzas);
+
   return (
 
        

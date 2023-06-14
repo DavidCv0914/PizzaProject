@@ -24,3 +24,15 @@ export const getMenu = async() =>
 
 export const getMenuSize = async(size) =>
     await axios.get(`${url}/getPizzas/${size}`);
+
+export const getMenuSoda = async() =>
+    await axios.get(`${url}/getSodas`);
+
+export const getMenuSodaSize = async(size) =>
+    await axios.get(`${url}/getSodas/${size}`);
+
+export const getMenuSodaType = async(type) =>
+    await axios.get(`${url}/getSodasType/${type}`);
+
+export const getMenuSodaAll = async(type,size) =>
+    await axios.get(`${url}/getSodasType/${type}/${size}`);

@@ -13,10 +13,10 @@ export const SelectSize = () => {
     <div>
         <select name="tamaño" onChange={handleOnchange}>
                 <option selected disabled>Elija un tamaño de pizza</option>
+                {context.typePizzaMenu ? <option value="">Todas</option> : null}
                 <option value="pequeña">Pequeña</option>
                 <option value="mediana">Mediana</option>
                 <option value="grande">Grande</option>
-                <option value="extragrande">Extragrande</option>
                 <option value="extragrande">Extragrande</option>
         </select>
     </div>

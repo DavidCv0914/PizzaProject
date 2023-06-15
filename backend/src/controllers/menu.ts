@@ -71,6 +71,15 @@ class MenuPizzas{
         }
     }
 
+    public async generateAdittional(req:Request,res:Response) {
+        try {
+            const result:any[] = await conexion.query("SELECT * FROM adicional");
+
+            res.json(result[0])
+        } catch (error) {
+            res.json(error)
+        }
+    }
 
 }
 

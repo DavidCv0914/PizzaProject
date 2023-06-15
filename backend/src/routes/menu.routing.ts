@@ -16,6 +16,7 @@ class RoutesOrder {
        this.menuRoute.get('/getSodas/:size',menuPizzas.generateSodasSize);
        this.menuRoute.get('/getSodasType/:type',menuPizzas.generateSodasType);
        this.menuRoute.get('/getSodasType/:type/:size',menuPizzas.generateSodasAll);
+       this.menuRoute.get('/getAdittional',menuPizzas.generateAdittional);
     }
 }
 

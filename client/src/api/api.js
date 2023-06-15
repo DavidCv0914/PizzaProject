@@ -1,9 +1,7 @@
 import axios from "axios";
-import Cookie from "universal-cookie";
 
 let url = "http://localhost:4000"
-const cookie = new Cookie()
-let token = cookie.get("token")
+let token = localStorage.getItem("token")
 
 export const singUpUser = async(values) =>
     await axios.post(`${url}/auths/createUser`, values);
@@ -36,3 +34,6 @@ export const getMenuSodaType = async(type) =>
 
 export const getMenuSodaAll = async(type,size) =>
     await axios.get(`${url}/getSodasType/${type}/${size}`);
+
+export const getMenuAditional = async() =>
+    await axios.get(`${url}/getAdittional`);

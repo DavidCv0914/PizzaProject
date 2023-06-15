@@ -1,13 +1,11 @@
 import React,{useEffect,useState} from 'react'
 import { Link,useNavigate } from "react-router-dom";
 import { dataUser } from "../../../api/api";
-import Cookie from "universal-cookie";
 
 export const Nav = () => {
 
     const navigate = useNavigate()
-    const cookie = new Cookie()
-    let validate = cookie.get("token")
+    let validate = localStorage.getItem("token")
     const [infoUser,setInfoUser] = useState({
         cellphone: "",
         codigo: 0,
@@ -23,7 +21,6 @@ export const Nav = () => {
         async function loadInfoUser(){
             const response = await dataUser()
             setInfoUser(response.data.data);
-            console.log(response);
         }
         loadInfoUser()
     },[])

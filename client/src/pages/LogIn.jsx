@@ -20,11 +20,11 @@ export const LogIn = () => {
       if (response.data.data = "Login successful") {
         if (response.data.rol == "user") {
           console.log("user");
-          document.cookie = `token=${response.data.token};max-age=${60 * 1440};path=/;samesite=strict`
+          localStorage.setItem('token',response.data.token)
           window.location.href="/"
         }
         if (response.data.rol == "admin") {
-          document.cookie = `token=${response.data.token};max-age=${60 * 1440};path=/;samesite=strict`
+          localStorage.setItem('token',response.data.token)
         }
       }
   }

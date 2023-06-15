@@ -352,6 +352,7 @@ header{
     color: var(--color-quinto);
     padding: 8px 20px;
     border-radius: 10px;
+    cursor: pointer;
 }
 .Cmenu-card__info button:hover{
     background: var(--color-tercer);
@@ -401,10 +402,38 @@ header{
 }
 /*--------------Profile------------------------*/
 .banner{
-    background:linear-gradient(#1f27297e, #0b13154c), url(../img/banner.jpg) no-repeat;
+    background:linear-gradient(#1f27297e, #0b13154c), url(../img/banner1.jpg) no-repeat;
     background-position: center;
     background-size: cover;
-    height: 50vh;
+    height: 48.5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 0 0 0;
+}
+.banner-icon{
+    background: url(../img/pizzazz.png);
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    border: 1px solid var(--blanco);
+}
+.infouser{
+    margin: 30px;
+    box-shadow:  10px 10px 28px #dfebfd,
+    -10px -10px 28px #f6f8fc;
+    border-radius: 20px;
+    padding: 20px;
+    height: 45vh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    justify-items: center;
+}
+.infouser p{
+    background: #dddddd;
 }
 /*--------------Formularios---------------------*/
 .form-contain{

@@ -1,26 +1,40 @@
-import React from "react";
+import React,{ useEffect,useState } from "react";
+import { getMenuAditional } from "../../../../api/api";
 
 export const MenuAdicional = () => {
+
+  const [loadMenu,setLoadMenu] = useState([]);
+
+  useEffect(()=>{
+    const loadInfo = async ()=>{
+      const response = await getMenuAditional();
+      setLoadMenu(response.data);
+    }
+    loadInfo();
+  },[])
+
   return (
     <div className="Cmenu-adicional">
-      <section className="Cmenu-card">
+      {loadMenu.map((add)=>(
+        <section className="Cmenu-card" key={add.id_adicional}>
         <div className="Cmenu-card__img">
           <img
-            src="https://res.cloudinary.com/dtit8udfs/image/upload/v1686310262/rosquilla_jvbdu9.png"
+            src={add.img}
             alt=""
           />
         </div>
         <div className="Cmenu-card__info">
-          <h2>Mexicana</h2>
-          <p>$ 32.000</p>
+          <h2>{add.nombre}</h2>
+          <p>$ {add.precio}</p>
           <p>
-            Salsa de Tomate, Queso Mozzarella, Carne Molida, Jalapeños, Cebolla,
-            Pimientos, Tomate y Maíz Dulce
+            {add.description}
           </p>
           <button>Agregar</button>
         </div>
       </section>
-      <section className="Cmenu-card">
+      ))}
+      
+      {/* <section className="Cmenu-card">
         <div className="Cmenu-card__img">
           <img
             src="https://res.cloudinary.com/dtit8udfs/image/upload/v1686310283/perro-de-maiz_yzqy75.png"
@@ -155,7 +169,7 @@ export const MenuAdicional = () => {
           </p>
           <button>Agregar</button>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };
